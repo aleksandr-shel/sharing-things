@@ -1,5 +1,5 @@
-import React from 'react';
-import { Navbar, Container, Nav, NavDropdown, Form, FormControl, Button, Image } from 'react-bootstrap';
+import React, { useState } from 'react';
+import { Navbar, Container, Nav, NavDropdown, Form, FormControl, Button, Image} from 'react-bootstrap';
 import { Outlet } from 'react-router-dom';
 import styled from 'styled-components';
 import {AiOutlineMenu, AiTwotoneHome, AiFillLike, AiOutlineFieldTime, AiOutlineGroup} from 'react-icons/ai';
@@ -7,13 +7,44 @@ import {Link} from 'react-router-dom';
 
 export default function Layout(){
 
+    const [isExpanded, setExpanded] = useState<boolean>(true);
 
+    function toggleHamburgerButton(){
+        setExpanded(!isExpanded)
+    }
+
+    const links = [
+        {
+            name: 'Home',
+            link: '/',
+            icon: (size?:number)=><AiTwotoneHome size={size}/>
+        },
+        {
+            name: 'Favorites',
+            link: '/',
+            icon: (size?:number)=> <AiFillLike size={size}/>
+        },
+        {
+            name: 'Subscriptions',
+            link: '/',
+            icon: (size?:number)=> <AiOutlineGroup size={size}/>
+        },
+        {
+            name: 'History',
+            link: '/',
+            icon: (size?:number)=> <AiOutlineFieldTime size={size}/>
+        },
+    ]
+    const Grid = styled.div`
+        display:grid;
+        grid-template-columns: ${isExpanded ? '2fr' : '1fr'} 15fr;
+    `
     return (
         <>
-            <div className='position-sticky top-0'>
+            <div className='position-sticky top-0' style={{zIndex:'1000'}}>
                 <Navbar bg="light" expand="lg">
                     <Container fluid>
-                        <Button variant='light'>
+                        <Button variant='light' onClick={toggleHamburgerButton}>
                             <AiOutlineMenu/>
                         </Button>
                         <Navbar.Brand as={Link} to='/' className='ms-1'>
@@ -38,35 +69,33 @@ export default function Layout(){
                         </NavDropdown>
                     </Container>
                 </Navbar>
-                <SideBar>
-                    <Nav className="d-flex flex-column">
-                        <Nav.Link href="#home">
-                            <AiTwotoneHome/>
-                            <span>Home</span>
-                        </Nav.Link>
-                        <Nav.Link href="#link">
-                            <AiFillLike/>
-                            <span>Favorites</span>
-                        </Nav.Link>
-                        <Nav.Link href="#link">
-                            <AiOutlineGroup/>
-                            <span>Subscriptions</span>
-                        </Nav.Link>
-                        <Nav.Link href="#link">
-                            <AiOutlineFieldTime/>
-                            <span>History</span>
-                        </Nav.Link>
-                    </Nav>
-                </SideBar>
             </div>
-            <Outlet/>
+            <Grid>
+                <div className='position-sticky top-0'>
+                    <Nav className="d-flex flex-column">
+                        {links.map((link,index)=>(
+                            <Nav.Link key={index} as={Link} to={`${link.link}`}>
+                                {isExpanded ? 
+                                (
+                                    <>
+                                        {link.icon(25)}
+                                        <span className='ms-2'>{link.name}</span>
+                                    </>
+                                ):(
+                                    <div className='my-2 d-flex justify-content-center flex-column align-items-center'>
+                                        {link.icon(30)}
+                                        <span style={{fontSize:'0.75em'}}>{link.name}</span>
+                                    </div>
+                                )}
+                                
+                            </Nav.Link>
+                        ))}
+                    </Nav>
+                </div>
+                <div>
+                    <Outlet/>
+                </div>
+            </Grid>
         </>
     )
 }
-
-const SideBar = styled.div`
-    float: left;
-    span{
-        margin-left: 10px;
-    }
-`

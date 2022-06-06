@@ -10,8 +10,10 @@ export const videoActions = videoSlice.actions;
 export const fetchVideos = ():ThunkAction<void, RootState, unknown, AnyAction>=>{
     return async(dispatch, getState)=>{
         if(getState().videoReducer.videos.length === 0){
+            dispatch(videoActions.setLoading(true))
             const response:Video[] = await agent.Videos.list();
             dispatch(videoActions.setVideos(response))
+            dispatch(videoActions.setLoading(false))
         }
     }
 }

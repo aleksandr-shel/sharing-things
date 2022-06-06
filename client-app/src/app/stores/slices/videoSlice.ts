@@ -4,12 +4,14 @@ import { Video } from "../../models/Video";
 
 interface VideoStateModel{
     videos: Video[],
-    selectedVideo: Video | null
+    selectedVideo: Video | null,
+    loading: boolean
 }
 
 const initialState:VideoStateModel = {
     videos: [],
-    selectedVideo: null
+    selectedVideo: null,
+    loading: false
 }
 
 const videoSlice = createSlice({
@@ -21,6 +23,9 @@ const videoSlice = createSlice({
         },
         setSelectedVideo:(state, action: PayloadAction<Video>)=>{
             state.selectedVideo = action.payload;
+        },
+        setLoading:(state, action: PayloadAction<boolean>)=>{
+            state.loading = action.payload;
         }
     }
 })
