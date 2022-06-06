@@ -9,6 +9,7 @@ namespace Sharing_things_backend.Services
         private readonly IAmazonS3 _client;
         private readonly ILogger<S3BucketService> _logger;
         private readonly string _bucketName = "sharing-things";
+        private readonly string _region = "ca-central-1";
         public S3BucketService(IAmazonS3 client, ILogger<S3BucketService> logger)
         {
             _client = client;
@@ -47,14 +48,14 @@ namespace Sharing_things_backend.Services
             throw new NotImplementedException();
         }
 
-        public async Task<string> UploadToBucket_TransferUtility(IFormFile file)
+        public async Task<(string, string)> UploadToBucket_TransferUtility(IFormFile file)
         {
             try
             {
                 if (file.Length > 0)
                 {
                     await using var stream = file.OpenReadStream();
-                    var key = Guid.NewGuid().ToString() + file.FileName;
+                    var key = Guid.NewGuid().ToString() + "_" + file.FileName;
                     var uploadRequest = new TransferUtilityUploadRequest
                     {
                         InputStream = stream,
@@ -71,7 +72,7 @@ namespace Sharing_things_backend.Services
                     var fileTransferUtility = new TransferUtility(_client);
                     await fileTransferUtility.UploadAsync(uploadRequest);
 
-                    return $"https://{_bucketName}.s3.ca-central-1.amazonaws.com/{key}";
+                    return ($"https://{_bucketName}.s3.{_region}.amazonaws.com/{key}", key);
                 }
             }catch(AmazonS3Exception e)
             {
@@ -80,7 +81,7 @@ namespace Sharing_things_backend.Services
             {
                 _logger.LogError(e.Message, e);
             }
-            return null;
+            return (null,null);
         }
 
         void uploadRequest_UploadPartProgressEvent(object sender, UploadProgressArgs e)

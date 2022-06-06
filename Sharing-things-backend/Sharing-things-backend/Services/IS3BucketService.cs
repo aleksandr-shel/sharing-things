@@ -2,7 +2,7 @@
 {
     public interface IS3BucketService
     {
-        Task<string> UploadToBucket_TransferUtility(IFormFile file);
+        Task<(string, string)> UploadToBucket_TransferUtility(IFormFile file);
 
         Task<bool> DeleteFileFromBucket(string fileKey);
 

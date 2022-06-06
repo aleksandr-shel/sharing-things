@@ -1,9 +1,12 @@
 ﻿using Amazon.Runtime;
 using Amazon.S3;
 using Amazon.S3.Model;
+using AutoMapper;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
+using Sharing_things_backend.Data;
 using Sharing_things_backend.Domain;
 using Sharing_things_backend.DTOs;
 using Sharing_things_backend.Services;
@@ -16,29 +19,54 @@ namespace Sharing_things_backend.Controllers
     public class VideoController : ControllerBase
     {
         private readonly ILogger<VideoController> _logger;
-        private readonly IS3BucketService iS3BucketService;
+        private readonly IMapper _mapper;
+        private readonly DataContext _context;
+        private readonly IS3BucketService _iS3BucketService;
 
-        public VideoController(ILogger<VideoController> logger, IS3BucketService iS3BucketService)
+        public VideoController(DataContext context, IS3BucketService iS3BucketService, ILogger<VideoController> logger,
+            IMapper mapper)
         {
             _logger = logger;
-            this.iS3BucketService = iS3BucketService;
+            _mapper = mapper;
+            _context = context;
+            _iS3BucketService = iS3BucketService;
         }
 
         [HttpPost]
         public async Task<IActionResult> PostVideo([FromForm] VideoUploadDto videoUploadDto)
         {
-            string urlpath = await iS3BucketService.UploadToBucket_TransferUtility(videoUploadDto.File);
+            (string videoUrl, string fileKey) = await _iS3BucketService.UploadToBucket_TransferUtility(videoUploadDto.File);
 
-            _logger.LogInformation(urlpath);
+            _logger.LogInformation(videoUrl + " " + fileKey);
+
+            var video = new Video
+            {
+                VideoUrl = videoUrl,
+                FileKey = fileKey,
+                Title = videoUploadDto.Title,
+            };
+
+            await _context.Videos.AddAsync(video);
+
+            await _context.SaveChangesAsync();
+
             return Ok();
         }
 
-        [HttpDelete("{fileKey}")]
-        public async Task<IActionResult> DeleteVideo(string fileKey)
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteVideo(Guid id)
         {
-            bool isDeleted = await iS3BucketService.DeleteFileFromBucket(fileKey);
+
+            var video = await _context.Videos.FindAsync(id);
+
+            if (video == null) return NotFound();
+
+            bool isDeleted = await _iS3BucketService.DeleteFileFromBucket(video.FileKey);
+
             if (isDeleted)
             {
+                _context.Videos.Remove(video);
+                await _context.SaveChangesAsync();
                 return Ok();
             }
             return BadRequest();
@@ -47,32 +75,31 @@ namespace Sharing_things_backend.Controllers
         [HttpGet("list")]
         public async Task<ActionResult> VideoList()
         {
-            List<Video> videos = new List<Video>
-            {
-                new Video
-                {
-                    Id = Guid.NewGuid(),
-                    VideoUrl = "test url",
-                    Title = "Some title",
-                    FileKey = "Some File key"
-                },
-                new Video
-                {
-                    Id = Guid.NewGuid(),
-                    VideoUrl = "test url2",
-                    Title = "Some title2",
-                    FileKey = "Some File key2"
-                },
-                new Video
-                {
-                    Id = Guid.NewGuid(),
-                    VideoUrl = "test url3",
-                    Title = "Some title3",
-                    FileKey = "Some File key3"
-                },
-            };
+            var videos = await _context.Videos.ToListAsync();
             return Ok(videos);
         }
 
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetVideo(Guid id)
+        {
+            var video = await _context.Videos.FindAsync(id);
+            return Ok(video);
+        }
+
+        [HttpPut("{id}")]
+        public async Task<IActionResult> UpdateVideoInfo(Guid id, VideoUpdateDto newVideo)
+        {
+            var video = await _context.Videos.FindAsync(id);
+
+            if (video == null) return NotFound();
+
+            _mapper.Map(newVideo, video);
+
+            var success = await _context.SaveChangesAsync() > 0;
+
+            if (success) return Ok();
+
+            return BadRequest("Failed to update video info");
+        }
     }
 }

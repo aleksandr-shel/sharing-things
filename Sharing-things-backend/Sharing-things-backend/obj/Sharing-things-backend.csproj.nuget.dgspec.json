@@ -55,11 +55,21 @@
               "target": "Package",
               "version": "[3.7.9.11, )"
             },
-            "FluentValidation": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[11.0.1, )"
+            },
+            "FluentValidation.AspNetCore": {
               "target": "Package",
               "version": "[11.0.2, )"
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[6.0.5, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
               "target": "Package",
               "version": "[6.0.5, )"
             },
