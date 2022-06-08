@@ -12,3 +12,20 @@
     justify-content: center;
     align-items: center;
 }
+
+.main-video-item:hover .video-item-body{
+    display:flex;
+}
+
+.video-item-body{
+    display: none;
+}
+.main-video-item{
+    width: 18em;
+    height: 18em;
+}
+.video-item-img{
+    width: 18em;
+    height: 18em;
+    object-fit:cover;
+}

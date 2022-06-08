@@ -1,8 +1,9 @@
 import React, { useEffect } from "react";
-import { Button, Card, Container } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 import LoadingComponent from "../../app/layout/LoadingComponent";
-import { fetchVideos, videoActions } from "../../app/stores/actions/videoActions";
+import { fetchVideos } from "../../app/stores/actions/videoActions";
 import { useAppDispatch, useAppSelector } from "../../app/stores/redux-hooks";
+import MainVideoItem from "./MainVideoItem";
 
 
 export default function Main(){
@@ -18,15 +19,10 @@ export default function Main(){
     if (loading) return <LoadingComponent/>
 
     return (
-        <Container fluid>
+        <Container className='d-flex flex-wrap my-3' fluid>
             {
                 videos.map((video)=>(
-                    <Card key={video.id} style={{ width: '18rem' }}>
-                        <Card.Img variant="top" src={`pic${Math.ceil(Math.random() * 5)}.jpg`} />
-                        <Card.Body>
-                            <Button variant="light">{video.title}</Button>
-                        </Card.Body>
-                    </Card>
+                    <MainVideoItem key={video.id} video={video}/>
                 ))
             }
         </Container>
