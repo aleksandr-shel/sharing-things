@@ -1,4 +1,6 @@
-
+body{
+    background-color: #eaeaea;
+}
 
 .dimmer{
     width: 100vw;

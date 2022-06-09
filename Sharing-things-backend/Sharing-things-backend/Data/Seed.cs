@@ -24,6 +24,11 @@ namespace Sharing_things_backend.Data
                         Title = "Red Pastel",
                         VideoUrl = "Red_Pastel.mp4",
                         FileKey = "blablaRed_Pastel.mp4"
+                    },
+                    new Video {
+                        Title = "Rabbit",
+                        VideoUrl = "Rabbit.mp4",
+                        FileKey = "blablaRabbit.mp4"
                     }
                 };
 

@@ -2,7 +2,7 @@ import React from 'react';
 import {Routes, Route} from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import Main from '../features/videos/Main';
-import MovieDetails from '../features/videos/MovieDetails';
+import MovieDetails from '../features/videos/MovieDetails/MovieDetails';
 import Layout from './layout/Layout';
 
 
