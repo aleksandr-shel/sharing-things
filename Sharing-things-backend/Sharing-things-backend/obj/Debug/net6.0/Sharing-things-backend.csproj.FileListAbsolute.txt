@@ -66,3 +66,9 @@ C:\Web Development Projects\sharing-things\Sharing-things-backend\Sharing-things
 C:\Web Development Projects\sharing-things\Sharing-things-backend\Sharing-things-backend\bin\Debug\net6.0\AutoMapper.dll
 C:\Web Development Projects\sharing-things\Sharing-things-backend\Sharing-things-backend\bin\Debug\net6.0\FluentValidation.AspNetCore.dll
 C:\Web Development Projects\sharing-things\Sharing-things-backend\Sharing-things-backend\bin\Debug\net6.0\FluentValidation.DependencyInjectionExtensions.dll
+C:\Web Development Projects\sharing-things\Sharing-things-backend\Sharing-things-backend\bin\Debug\net6.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+C:\Web Development Projects\sharing-things\Sharing-things-backend\Sharing-things-backend\bin\Debug\net6.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+C:\Web Development Projects\sharing-things\Sharing-things-backend\Sharing-things-backend\bin\Debug\net6.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+C:\Web Development Projects\sharing-things\Sharing-things-backend\Sharing-things-backend\bin\Debug\net6.0\Microsoft.Extensions.Identity.Core.dll
+C:\Web Development Projects\sharing-things\Sharing-things-backend\Sharing-things-backend\bin\Debug\net6.0\Microsoft.Extensions.Identity.Stores.dll
+C:\Web Development Projects\sharing-things\Sharing-things-backend\Sharing-things-backend\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll

@@ -4,6 +4,7 @@ namespace Sharing_things_backend.Domain
 {
     public class AppUser : IdentityUser
     {
-        ICollection<Video> Videos { get; set; }
+        public string DisplayName { get; set; }
+        public ICollection<Video> Videos { get; set; }
     }
 }

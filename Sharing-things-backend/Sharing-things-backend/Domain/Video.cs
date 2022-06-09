@@ -6,5 +6,6 @@
         public string Title { get; set; }
         public string VideoUrl { get; set; }
         public string FileKey { get; set; }
+        public AppUser Owner { get; set; }
     }
 }

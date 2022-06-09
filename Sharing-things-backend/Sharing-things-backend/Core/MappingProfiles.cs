@@ -10,6 +10,7 @@ namespace Sharing_things_backend.Core
         public MappingProfiles()
         {
             CreateMap<VideoUpdateDto, Video>();
+            CreateMap<AppUser, UserVideosDto>();
         }
     }
 }
