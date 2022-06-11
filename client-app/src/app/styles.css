@@ -24,10 +24,23 @@ body{
 }
 .main-video-item{
     width: 18em;
-    height: 18em;
+    height: 14em;
 }
 .video-item-img{
     width: 18em;
-    height: 18em;
+    height: 14em;
     object-fit:cover;
+}
+
+
+/* change size of video-card and image when window is less than 1000px wide */
+@media only screen and (max-width: 1000px) {
+    .video-item-img{
+        width: 14em;
+        height: 10em;
+    }
+    .main-video-item{
+        width: 14em;
+        height: 10em;
+    }
 }

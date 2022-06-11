@@ -1,13 +1,21 @@
-import React, { useState } from 'react';
+import React, {useState } from 'react';
 import { Navbar, Container, Nav, NavDropdown, Form, FormControl, Button, Image} from 'react-bootstrap';
 import { Outlet } from 'react-router-dom';
 import styled from 'styled-components';
 import {AiOutlineMenu, AiTwotoneHome, AiFillLike, AiOutlineFieldTime, AiOutlineGroup} from 'react-icons/ai';
 import {Link} from 'react-router-dom';
+import { openModal } from '../stores/slices/modalSlice';
+import Login from '../../features/users/Login';
+import { useAppDispatch, useAppSelector } from '../stores/redux-hooks';
+import Register from '../../features/users/Register';
+import { logout } from '../stores/slices/userSlice';
+
 
 export default function Layout(){
 
     const [isExpanded, setExpanded] = useState<boolean>(true);
+    const dispatch = useAppDispatch();
+    const {user} = useAppSelector(state=> state.userReducer);
 
     function toggleHamburgerButton(){
         setExpanded(!isExpanded)
@@ -17,22 +25,26 @@ export default function Layout(){
         {
             name: 'Home',
             link: '/',
-            icon: (size?:number)=><AiTwotoneHome size={size}/>
+            icon: (size?:number)=><AiTwotoneHome size={size}/>,
+            requiredUser: false,
         },
         {
             name: 'Favorites',
             link: '/',
-            icon: (size?:number)=> <AiFillLike size={size}/>
+            icon: (size?:number)=> <AiFillLike size={size}/>,
+            requiredUser: true,
         },
         {
             name: 'Subscriptions',
             link: '/',
-            icon: (size?:number)=> <AiOutlineGroup size={size}/>
+            icon: (size?:number)=> <AiOutlineGroup size={size}/>,
+            requiredUser: true,
         },
         {
             name: 'History',
             link: '/',
-            icon: (size?:number)=> <AiOutlineFieldTime size={size}/>
+            icon: (size?:number)=> <AiOutlineFieldTime size={size}/>,
+            requiredUser: true,
         },
     ]
     const Grid = styled.div`
@@ -61,11 +73,16 @@ export default function Layout(){
                             />
                             <Button variant="outline-success">Search</Button>
                         </Form>
-                        <NavDropdown title="User" id="basic-nav-dropdown">
-                            <NavDropdown.Item href="#action/3.2">Login</NavDropdown.Item>
-                            <NavDropdown.Item href="#action/3.3">Register</NavDropdown.Item>
-                            <NavDropdown.Divider />
-                            <NavDropdown.Item href="#action/3.4">Logout</NavDropdown.Item>
+                        <NavDropdown key="user-nav" title={user==null ? "Login/Register" : user.displayName} id="basic-nav-dropdown">
+                            {
+                                user == null ?
+                                <>
+                                    <NavDropdown.Item onClick={()=>dispatch(openModal(<Login/>))}>Login</NavDropdown.Item>
+                                    <NavDropdown.Item onClick={()=>dispatch(openModal(<Register/>))}>Register</NavDropdown.Item>
+                                </>
+                                :
+                                <NavDropdown.Item onClick={()=> dispatch(logout())}>Logout</NavDropdown.Item>
+                            }
                         </NavDropdown>
                     </Container>
                 </Navbar>
@@ -73,23 +90,46 @@ export default function Layout(){
             <Grid>
                 <div className='position-sticky top-0'>
                     <Nav className="d-flex flex-column">
-                        {links.map((link,index)=>(
-                            <Nav.Link key={index} as={Link} to={`${link.link}`}>
-                                {isExpanded ? 
-                                (
-                                    <>
-                                        {link.icon(25)}
-                                        <span className='ms-2'>{link.name}</span>
-                                    </>
-                                ):(
-                                    <div className='my-2 d-flex justify-content-center flex-column align-items-center'>
-                                        {link.icon(30)}
-                                        <span style={{fontSize:'0.75em'}}>{link.name}</span>
-                                    </div>
-                                )}
-                                
-                            </Nav.Link>
-                        ))}
+                        {links.map((link,index)=>{
+
+                            if (!link.requiredUser){
+                                return (
+                                    <Nav.Link key={index} as={Link} to={`${link.link}`}>
+                                        {isExpanded ? 
+                                        (
+                                            <>
+                                                {link.icon(25)}
+                                                <span className='ms-2'>{link.name}</span>
+                                            </>
+                                        ):(
+                                            <div className='my-2 d-flex justify-content-center flex-column align-items-center'>
+                                                {link.icon(30)}
+                                                <span style={{fontSize:'0.75em'}}>{link.name}</span>
+                                            </div>
+                                        )}
+                                        
+                                    </Nav.Link>)
+                            } else if (user !== null) {
+                                return (
+                                    <Nav.Link key={index} as={Link} to={`${link.link}`}>
+                                        {isExpanded ? 
+                                        (
+                                            <>
+                                                {link.icon(25)}
+                                                <span className='ms-2'>{link.name}</span>
+                                            </>
+                                        ):(
+                                            <div className='my-2 d-flex justify-content-center flex-column align-items-center'>
+                                                {link.icon(30)}
+                                                <span style={{fontSize:'0.75em'}}>{link.name}</span>
+                                            </div>
+                                        )}
+                                        
+                                    </Nav.Link>)
+                            } else {
+                                return null;
+                            }
+                        })}
                     </Nav>
                 </div>
                 <div>

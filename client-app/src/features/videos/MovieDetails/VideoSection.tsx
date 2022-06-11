@@ -18,12 +18,12 @@ export default function VideoSection(){
 
     
     return (
-        <>
+        <div className='mt-3'>
             <video key={selectedVideo?.videoUrl} className='w-100' controls preload='auto'>
                 <source src={selectedVideo?.videoUrl} type="video/mp4"/>
                 Your browser does not support the video tag.
             </video>
             <h4>{selectedVideo?.title}</h4>
-        </>
+        </div>
     )
 }

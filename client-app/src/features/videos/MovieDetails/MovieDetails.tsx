@@ -14,7 +14,7 @@ export default function MovieDetails(){
                     <VideoSection/>
                     <CommentsSection/>
                 </Col>
-                <Col sm={3} style={{backgroundColor:'lightblue'}}>
+                <Col sm={3}>
                     <SuggestionsSection/>
                 </Col>
             </Row>
