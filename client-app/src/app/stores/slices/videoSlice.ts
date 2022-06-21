@@ -5,13 +5,15 @@ import { Video } from "../../models/Video";
 interface VideoStateModel{
     videos: Video[],
     selectedVideo: Video | null,
-    loading: boolean
+    loading: boolean,
+    downloadVideoLoading: boolean,
 }
 
 const initialState:VideoStateModel = {
     videos: [],
     selectedVideo: null,
-    loading: false
+    loading: false,
+    downloadVideoLoading: false
 }
 
 const videoSlice = createSlice({
@@ -26,6 +28,12 @@ const videoSlice = createSlice({
         },
         setLoading:(state, action: PayloadAction<boolean>)=>{
             state.loading = action.payload;
+        },
+        addVideo: (state, action: PayloadAction<Video>)=>{
+            state.videos.push(action.payload);
+        },
+        setDownloadLoading: (state, action: PayloadAction<boolean>)=>{
+            state.downloadVideoLoading = action.payload;
         }
     }
 })

@@ -7,5 +7,6 @@
         public string VideoUrl { get; set; }
         public string FileKey { get; set; }
         public AppUser Owner { get; set; }
+        public ICollection<UserFavorite> UsersLiked { get; set; }
     }
 }

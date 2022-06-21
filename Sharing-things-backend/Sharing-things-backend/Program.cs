@@ -1,5 +1,7 @@
 using FluentValidation.AspNetCore;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.EntityFrameworkCore;
 using Sharing_things_backend.Data;
 using Sharing_things_backend.Domain;
@@ -10,7 +12,12 @@ var builder = WebApplication.CreateBuilder(args);
 var config = builder.Configuration;
 // Add services to the container.
 
-builder.Services.AddControllers()
+builder.Services.AddControllers(opt =>
+{
+    //added authorization, so only authenticated users can access 
+    var policy = new AuthorizationPolicyBuilder().RequireAuthenticatedUser().Build();
+    opt.Filters.Add(new AuthorizeFilter(policy));
+})
     .AddFluentValidation(config =>
     {
         config.RegisterValidatorsFromAssemblyContaining<VideoUploadDtoValidator>();

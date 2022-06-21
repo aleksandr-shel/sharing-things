@@ -11,6 +11,8 @@ namespace Sharing_things_backend.Core
         {
             CreateMap<VideoUpdateDto, Video>();
             CreateMap<AppUser, UserVideosDto>();
+            CreateMap<Video, VideoDto>();
+            CreateMap<AppUser, OwnerDto>();
         }
     }
 }

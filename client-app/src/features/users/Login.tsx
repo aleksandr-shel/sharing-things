@@ -3,7 +3,7 @@ import { Formik, ErrorMessage } from "formik";
 import { login } from "../../app/stores/actions/userActions";
 import { Button, Form, FormLabel, Spinner} from "react-bootstrap";
 import * as Yup from 'yup';
-import { useAppDispatch } from "../../app/stores/redux-hooks";
+import { useAppDispatch, useAppSelector } from "../../app/stores/redux-hooks";
 
 
 export default function Login(){
@@ -13,6 +13,7 @@ export default function Login(){
         password: Yup.string().required('Required')
     })
     const dispatch = useAppDispatch();
+    const {loading} = useAppSelector(state => state.userReducer);
 
     return(
         <Formik
@@ -56,7 +57,7 @@ export default function Login(){
                             </FormLabel>}
                         />
                         <Button disabled={!formik.isValid} type='submit'>
-                            {formik.isSubmitting ?
+                            {loading ?
                                 <Spinner animation="border" role="status"/>
                                 :
                                 'Login'

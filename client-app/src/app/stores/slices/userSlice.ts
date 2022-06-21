@@ -4,12 +4,14 @@ import { User } from "../../models/User";
 
 interface UserState{
     token: string | null,
-    user: User | null
+    user: User | null,
+    loading: boolean,
 }
 
 const initialState:UserState={
     token: null,
-    user: null
+    user: null,
+    loading: false,
 }
 
 
@@ -28,10 +30,13 @@ const userSlice = createSlice({
             state.token = null;
             state.user = null;
             window.localStorage.removeItem('sharing-things-token')
+        },
+        setLoading: (state, action: PayloadAction<boolean>)=>{
+            state.loading = action.payload;
         }
     }
 })
 
-export const {logout, setToken, setUser} = userSlice.actions;
+export const {logout, setToken, setUser, setLoading} = userSlice.actions;
 
 export default userSlice;

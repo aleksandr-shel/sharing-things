@@ -1,8 +1,9 @@
 import React, { useEffect } from 'react';
 import {Routes, Route} from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
+import AddVideoForm from '../features/videos/Form/AddVideoForm';
 import Main from '../features/videos/Main';
-import MovieDetails from '../features/videos/MovieDetails/MovieDetails';
+import MovieDetails from '../features/videos/VideoDetails/MovieDetails';
 import ModalContainer from './common/modals/ModalContainer';
 import Layout from './layout/Layout';
 import { current } from './stores/actions/userActions';
@@ -28,6 +29,7 @@ function App() {
         <Route path='/' element={<Layout/>}>
           <Route index element={<Main/>}/>
           <Route path='/videos/:id' element={<MovieDetails/>}/>
+          <Route path='share-video' element={<AddVideoForm/>}/>
         </Route>
       </Routes>
     </>

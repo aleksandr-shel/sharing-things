@@ -34,10 +34,11 @@ namespace Sharing_things_backend.Extensions
                         ValidateAudience = false
                     };
                 });
+
+            services.AddAuthorization();
+
             services.AddScoped<ITokenService, TokenService>();
 
-            //services.AddAuthorization();
-            
             return services;
         }
     }

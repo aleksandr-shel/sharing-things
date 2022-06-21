@@ -2,7 +2,7 @@ import React, {useState } from 'react';
 import { Navbar, Container, Nav, NavDropdown, Form, FormControl, Button, Image} from 'react-bootstrap';
 import { Outlet } from 'react-router-dom';
 import styled from 'styled-components';
-import {AiOutlineMenu, AiTwotoneHome, AiFillLike, AiOutlineFieldTime, AiOutlineGroup} from 'react-icons/ai';
+import {AiOutlineMenu, AiTwotoneHome, AiFillLike, AiOutlineFieldTime, AiOutlineGroup, AiOutlineVideoCameraAdd} from 'react-icons/ai';
 import {Link} from 'react-router-dom';
 import { openModal } from '../stores/slices/modalSlice';
 import Login from '../../features/users/Login';
@@ -73,6 +73,12 @@ export default function Layout(){
                             />
                             <Button variant="outline-success">Search</Button>
                         </Form>
+                        <Nav>
+                            {
+                                user !== null &&
+                                <Nav.Link as={Link} to='/share-video'><AiOutlineVideoCameraAdd/></Nav.Link>
+                            }
+                        </Nav>
                         <NavDropdown key="user-nav" title={user==null ? "Login/Register" : user.displayName} id="basic-nav-dropdown">
                             {
                                 user == null ?

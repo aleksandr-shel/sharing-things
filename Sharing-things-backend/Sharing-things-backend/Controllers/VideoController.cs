@@ -36,16 +36,17 @@ namespace Sharing_things_backend.Controllers
         }
 
         [HttpPost]
-        [Authorize]
-        public async Task<IActionResult> PostVideo([FromForm] VideoUploadDto videoUploadDto)
+        public async Task<ActionResult<VideoDto>> PostVideo([FromForm] VideoUploadDto videoUploadDto)
         {
-            (string videoUrl, string fileKey) = await _iS3BucketService.UploadToBucket_TransferUtility(videoUploadDto.File);
-
-            _logger.LogInformation(videoUrl + " " + fileKey);
 
             var owner = await _context.Users.FirstOrDefaultAsync(x => x.Email == User.FindFirstValue(ClaimTypes.Email));
 
             if (owner == null) return Unauthorized();
+
+            (string videoUrl, string fileKey) = await _iS3BucketService.UploadToBucket_TransferUtility(videoUploadDto.File);
+
+            if (videoUrl == null) return BadRequest("Can't upload video");
+            _logger.LogInformation(videoUrl + " " + fileKey);
 
             var video = new Video
             {
@@ -55,15 +56,16 @@ namespace Sharing_things_backend.Controllers
                 Owner = owner
             };
 
-            await _context.Videos.AddAsync(video);
+            var result = await _context.Videos.AddAsync(video);
 
             await _context.SaveChangesAsync();
 
-            return Ok();
+            var videoRes = _mapper.Map<VideoDto>(result.Entity);
+
+            return Ok(videoRes);
         }
 
         [HttpDelete("{id}")]
-        [Authorize]
         public async Task<IActionResult> DeleteVideo(Guid id)
         {
 
@@ -90,21 +92,28 @@ namespace Sharing_things_backend.Controllers
         }
 
         [HttpGet("list")]
+        [AllowAnonymous]
         public async Task<ActionResult> VideoList()
         {
-            var videos = await _context.Videos.ToListAsync();
+            var videos = await _context.Videos
+                .ProjectTo<VideoDto>(_mapper.ConfigurationProvider)
+                .ToListAsync();
             return Ok(videos);
         }
 
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetVideo(Guid id)
+        [AllowAnonymous]
+        public async Task<ActionResult<VideoDto>> GetVideo(Guid id)
         {
-            var video = await _context.Videos.FindAsync(id);
-            return Ok(video);
+            var video = await _context.Videos
+                .Include(x=>x.Owner)
+                .FirstOrDefaultAsync(x => x.Id == id);
+
+            var videoRes = _mapper.Map<VideoDto>(video);
+            return Ok(videoRes);
         }
 
         [HttpPut("{id}")]
-        [Authorize]
         public async Task<IActionResult> UpdateVideoInfo(Guid id, VideoUpdateDto newVideo)
         {
             var video = await _context.Videos.FindAsync(id);
@@ -129,7 +138,6 @@ namespace Sharing_things_backend.Controllers
 
 
         [HttpGet("current-user")]
-        [Authorize]
         public async Task<IActionResult> GetUserVideos()
         {
             var currentUser = await _context.Users

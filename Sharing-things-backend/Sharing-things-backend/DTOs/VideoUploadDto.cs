@@ -16,6 +16,7 @@ namespace Sharing_things_backend.DTOs
         public VideoUploadDtoValidator()
         {
             RuleFor(x => x.Title).NotEmpty();
+            RuleFor(x => x.File).NotNull();
         }
     }
 }

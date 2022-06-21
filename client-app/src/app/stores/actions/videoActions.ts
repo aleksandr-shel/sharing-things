@@ -1,6 +1,6 @@
 import videoSlice from "../slices/videoSlice";
 import agent from "../../api/agent";
-import { AnyAction, ThunkAction } from "@reduxjs/toolkit";
+import { AnyAction, ThunkAction} from "@reduxjs/toolkit";
 import { RootState } from "../store";
 import { Video } from "../../models/Video";
 
@@ -24,3 +24,13 @@ export const fetchVideo = (id: string):ThunkAction<void, RootState, unknown, Any
         dispatch(videoActions.setSelectedVideo(response));
     }
 }
+
+
+export const postVideo = (title: string, file: File):ThunkAction<void, RootState, unknown, AnyAction>=>{
+    return async(dispatch)=>{
+        const response = await agent.Videos.uploadVideo(file, title);
+        const video = response.data;
+        dispatch(videoActions.addVideo(video));
+    }
+}
+

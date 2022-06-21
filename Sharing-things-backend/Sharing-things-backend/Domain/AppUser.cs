@@ -6,5 +6,7 @@ namespace Sharing_things_backend.Domain
     {
         public string DisplayName { get; set; }
         public ICollection<Video> Videos { get; set; }
+
+        public ICollection<UserFavorite> Favorites { get; set; }
     }
 }

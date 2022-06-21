@@ -22,14 +22,14 @@ axios.interceptors.response.use( async response =>{
     await sleep(1000);
     return response;
 }, (error: AxiosError)=>{
-    const {status, data}= error.response!;
+    const {status, statusText, data}= error.response!;
     switch(status){
         case 400:
             if (typeof data === 'string'){
                 toast.error(data);
             }
             else {
-                toast.error('400 Bad Request');
+                toast.error('400 Bad Request: '+ statusText);
             }
             
             break;
@@ -61,7 +61,13 @@ const requests = {
 
 const Videos = {
     list: ()=> requests.get<Video[]>('/video/list'),
-    details: (id:string)=> requests.get<Video>(`/video/${id}`)
+    details: (id:string)=> requests.get<Video>(`/video/${id}`),
+    uploadVideo: (file: File, title:string)=> {
+        let formData = new FormData();
+        formData.append('File', file);
+        formData.append('Title', title);
+        return axios.post<Video>('video', formData)
+    }
 }
 
 const Account = {

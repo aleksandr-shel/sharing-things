@@ -223,6 +223,21 @@ namespace Sharing_things_backend.Data.Migrations
                     b.ToTable("AspNetUsers", (string)null);
                 });
 
+            modelBuilder.Entity("Sharing_things_backend.Domain.UserFavorite", b =>
+                {
+                    b.Property<string>("AppUserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<Guid>("VideoId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("AppUserId", "VideoId");
+
+                    b.HasIndex("VideoId");
+
+                    b.ToTable("UserFavorites");
+                });
+
             modelBuilder.Entity("Sharing_things_backend.Domain.Video", b =>
                 {
                     b.Property<Guid>("Id")
@@ -299,6 +314,25 @@ namespace Sharing_things_backend.Data.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("Sharing_things_backend.Domain.UserFavorite", b =>
+                {
+                    b.HasOne("Sharing_things_backend.Domain.AppUser", "User")
+                        .WithMany("Favorites")
+                        .HasForeignKey("AppUserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Sharing_things_backend.Domain.Video", "Video")
+                        .WithMany("UsersLiked")
+                        .HasForeignKey("VideoId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
+
+                    b.Navigation("Video");
+                });
+
             modelBuilder.Entity("Sharing_things_backend.Domain.Video", b =>
                 {
                     b.HasOne("Sharing_things_backend.Domain.AppUser", "Owner")
@@ -310,7 +344,14 @@ namespace Sharing_things_backend.Data.Migrations
 
             modelBuilder.Entity("Sharing_things_backend.Domain.AppUser", b =>
                 {
+                    b.Navigation("Favorites");
+
                     b.Navigation("Videos");
+                });
+
+            modelBuilder.Entity("Sharing_things_backend.Domain.Video", b =>
+                {
+                    b.Navigation("UsersLiked");
                 });
 #pragma warning restore 612, 618
         }

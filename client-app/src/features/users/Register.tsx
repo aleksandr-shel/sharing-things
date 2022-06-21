@@ -3,7 +3,7 @@ import { Formik, ErrorMessage } from "formik";
 import { register} from "../../app/stores/actions/userActions";
 import { Button, Form, FormLabel, Spinner} from "react-bootstrap";
 import * as Yup from 'yup';
-import { useAppDispatch } from "../../app/stores/redux-hooks";
+import { useAppDispatch, useAppSelector } from "../../app/stores/redux-hooks";
 
 export default function Register(){
     const validationSchema = Yup.object({
@@ -13,7 +13,7 @@ export default function Register(){
         displayName: Yup.string().required('Required')
     })
     const dispatch = useAppDispatch();
-
+    const {loading} = useAppSelector(state => state.userReducer);
     return(
         <Formik
             initialValues={{email:'', password:'', displayName:'', username:'', error:null}}
@@ -76,7 +76,7 @@ export default function Register(){
                             </FormLabel>}
                         />
                         <Button disabled={!formik.isValid} type='submit'>
-                            {formik.isSubmitting ?
+                            {loading ?
                                 <Spinner animation="border" role="status"/>
                                 :
                                 'Register'

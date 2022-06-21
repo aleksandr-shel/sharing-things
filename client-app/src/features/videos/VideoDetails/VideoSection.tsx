@@ -13,7 +13,6 @@ export default function VideoSection(){
         if (!selectedVideo && id){
             dispatch(fetchVideo(id))
         }
-        console.log(selectedVideo)
     },[dispatch, selectedVideo, id])
 
     
