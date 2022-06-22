@@ -30,7 +30,7 @@ export default function Layout(){
         },
         {
             name: 'Favorites',
-            link: '/',
+            link: '/favorites',
             icon: (size?:number)=> <AiFillLike size={size}/>,
             requiredUser: true,
         },

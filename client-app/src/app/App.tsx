@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import {Routes, Route} from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
+import FavoriteList from '../features/videos/Favorite/FavoriteList';
 import AddVideoForm from '../features/videos/Form/AddVideoForm';
 import Main from '../features/videos/Main';
 import MovieDetails from '../features/videos/VideoDetails/MovieDetails';
@@ -30,6 +31,7 @@ function App() {
           <Route index element={<Main/>}/>
           <Route path='/videos/:id' element={<MovieDetails/>}/>
           <Route path='share-video' element={<AddVideoForm/>}/>
+          <Route path='favorites' element={<FavoriteList/>}/>
         </Route>
       </Routes>
     </>

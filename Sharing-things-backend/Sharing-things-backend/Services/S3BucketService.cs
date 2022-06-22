@@ -56,6 +56,9 @@ namespace Sharing_things_backend.Services
                 {
                     await using var stream = file.OpenReadStream();
                     var key = Guid.NewGuid().ToString() + "_" + file.FileName;
+
+                    //_logger.LogInformation(JsonSerializer.Serialize(file));
+
                     var uploadRequest = new TransferUtilityUploadRequest
                     {
                         InputStream = stream,

@@ -10,7 +10,7 @@ const sleep = (delay: number)=>{
     })
 }
 
-axios.defaults.baseURL = 'https://localhost:5001/api';
+axios.defaults.baseURL = process.env.REACT_APP_API_URL;
 
 axios.interceptors.request.use(config=>{
     const token = store.getState().userReducer.token;
@@ -67,7 +67,10 @@ const Videos = {
         formData.append('File', file);
         formData.append('Title', title);
         return axios.post<Video>('video', formData)
-    }
+    },
+    favoriteList: () => requests.get<Video[]>('/favorite/list'),
+    toggleFavorite: (id: string)=> axios.post(`/favorite/${id}`, {}),
+    isFavorite: (id:string)=>requests.get<boolean>(`/favorite/${id}`)
 }
 
 const Account = {

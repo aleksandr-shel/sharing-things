@@ -18,7 +18,9 @@ body{
 .main-video-item:hover .video-item-body{
     display:flex;
 }
-
+.main-video-item:hover{
+    transform: scale(1.02);
+}
 .video-item-body{
     display: none;
 }

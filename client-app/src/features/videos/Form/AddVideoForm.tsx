@@ -5,6 +5,7 @@ import { useAppDispatch, useAppSelector } from '../../../app/stores/redux-hooks'
 import { useNavigate } from 'react-router-dom';
 import agent from '../../../app/api/agent';
 import { videoActions } from '../../../app/stores/actions/videoActions';
+import ReactPlayer from 'react-player';
 
 export default function AddVideoForm(){
 
@@ -61,7 +62,7 @@ export default function AddVideoForm(){
                         </Form.Group>
                         <VideoUploadWidget setSrc={setSrc} setFiles={setFiles}/>
                         
-                        <Button variant='outline-primary' type='button' onClick={async()=>await UploadVideo()}>
+                        <Button disabled={error || title ===''} variant='outline-primary' type='button' onClick={async()=>await UploadVideo()}>
                             {downloadVideoLoading && 
                                 <Spinner animation="border" role="status"/>
                             }
@@ -74,9 +75,9 @@ export default function AddVideoForm(){
                 </Col>
                 <Col sm={6}>
                     {src !== null &&
-                    <video key={src} className='w-75 my-5 mx-5' controls preload='auto'>
-                        <source src={src} type="video/mp4"/>
-                    </video>
+                        <div className='w-75 mt-5 me-5'>
+                            <ReactPlayer  controls url={src} />
+                        </div>
                     }
                 </Col>
             </Row>
