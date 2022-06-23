@@ -68,7 +68,8 @@ const Videos = {
     },
     favoriteList: () => requests.get<Video[]>('/favorite/list'),
     toggleFavorite: (id: string)=> axios.post(`/favorite/${id}`, {}),
-    isFavorite: (id:string)=>requests.get<boolean>(`/favorite/${id}`)
+    isFavorite: (id:string)=>requests.get<boolean>(`/favorite/${id}`),
+    subscriptionsList: ()=>requests.get<Video[]>('video/subscriptions')
 }
 
 const Account = {
@@ -80,7 +81,8 @@ const Account = {
 const Profiles = {
     listProfiles: () => requests.get<Profile[]>('/profile/list'),
     listFollowing: () => requests.get<Profile[]>(`/follow/list`),
-    updateFollowing: (username:string)=>axios.post(`/follow/${username}`,{}).then(response => response.status)
+    updateFollowing: (username:string)=>axios.post(`/follow/${username}`,{}).then(response => response.status),
+    getSingleProfile: (username:string) => requests.get<Profile>(`/profile/list/${username}`)
 }
 
 const agent = {
