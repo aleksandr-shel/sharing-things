@@ -4,6 +4,7 @@ import { AnyAction, ThunkAction} from "@reduxjs/toolkit";
 import { RootState } from "../store";
 import { Video } from "../../models/Video";
 import { AxiosResponse } from "axios";
+import { toast } from "react-toastify";
 
 export const videoActions = videoSlice.actions;
 
@@ -48,8 +49,9 @@ export const fetchFavoriteVideosList = ():ThunkAction<void, RootState, unknown, 
 export const toggleFavorite = (video: Video):ThunkAction<void, RootState, unknown, AnyAction>=>{
     return async (dispatch)=>{
         const response : AxiosResponse = await agent.Videos.toggleFavorite(video.id);
-        if (response.status == 200){
+        if (response.status === 200){
             dispatch(videoActions.toggleFavorite(video))
+            toast.info('Updated')
         }
     }
 }

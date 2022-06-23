@@ -36,6 +36,7 @@ namespace Sharing_things_backend.Controllers
         }
 
         [HttpPost]
+        [RequestSizeLimit(100000000)]
         public async Task<ActionResult<VideoDto>> PostVideo([FromForm] VideoUploadDto videoUploadDto)
         {
 
@@ -96,7 +97,7 @@ namespace Sharing_things_backend.Controllers
         public async Task<ActionResult> VideoList()
         {
             var videos = await _context.Videos
-                .ProjectTo<VideoDto>(_mapper.ConfigurationProvider)
+                .ProjectTo<VideoDto>(_mapper.ConfigurationProvider, new { currentUsername = User.FindFirstValue(ClaimTypes.Name) })
                 .ToListAsync();
             return Ok(videos);
         }
@@ -106,11 +107,9 @@ namespace Sharing_things_backend.Controllers
         public async Task<ActionResult<VideoDto>> GetVideo(Guid id)
         {
             var video = await _context.Videos
-                .Include(x=>x.Owner)
+                .ProjectTo<VideoDto>(_mapper.ConfigurationProvider, new { currentUsername = User.FindFirstValue(ClaimTypes.Name) })
                 .FirstOrDefaultAsync(x => x.Id == id);
-
-            var videoRes = _mapper.Map<VideoDto>(video);
-            return Ok(videoRes);
+            return Ok(video);
         }
 
         [HttpPut("{id}")]
@@ -152,6 +151,31 @@ namespace Sharing_things_backend.Controllers
             {
                 return NotFound();
             }
+
+            return Ok(videos);
+        }
+
+        [HttpGet("subscriptions")]
+        public async Task<IActionResult> GetSubscriVideo()
+        {
+            //var subscriptions = await (from uf in _context.UserFollowings
+            //                    where uf.Observer.UserName == User.FindFirstValue(ClaimTypes.Email)
+            //                    select uf.Observer).ToListAsync();
+            //var videos = await (from v in _context.Videos
+            //             where subscriptions.Contains(v.Owner)
+            //             select v)
+            //             .ProjectTo<VideoDto>(_mapper.ConfigurationProvider)
+            //             .ToListAsync();
+
+
+            //return Ok(videos);
+
+            var videos = await (from v in _context.Videos
+                                join u in _context.UserFollowings on v.Owner.UserName equals u.Target.UserName
+                                where u.Observer.UserName == User.FindFirstValue(ClaimTypes.Name)
+                                select v)
+                         .ProjectTo<VideoDto>(_mapper.ConfigurationProvider, new { currentUsername = User.FindFirstValue(ClaimTypes.Name) })
+                         .ToListAsync();
 
             return Ok(videos);
         }

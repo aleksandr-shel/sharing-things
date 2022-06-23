@@ -6,10 +6,13 @@ import { useAppDispatch, useAppSelector } from '../../../app/stores/redux-hooks'
 import {AiFillLike, AiOutlineLike} from 'react-icons/ai'
 import { Button } from 'react-bootstrap';
 import agent from '../../../app/api/agent';
+
+
 export default function VideoSection(){
 
     const {id} = useParams();
     const {selectedVideo, favoriteList} = useAppSelector(state => state.videoReducer);
+    const {user} = useAppSelector(state => state.userReducer);
     const dispatch = useAppDispatch();
     const [favorite, setFavorite] = useState(false);
 
@@ -19,7 +22,7 @@ export default function VideoSection(){
         }
         async function isFavorite(){
         
-            if (selectedVideo !== null){
+            if (selectedVideo !== null && user !== null){
                 if (favoriteList.length !== 0){
                     if (favoriteList.some(video => video.id === selectedVideo.id)){
                         setFavorite(true);
@@ -32,7 +35,7 @@ export default function VideoSection(){
             }
         }
         isFavorite()
-    },[dispatch,  selectedVideo, favoriteList, favoriteList.length, id])
+    },[dispatch, user, selectedVideo, favoriteList, favoriteList.length, id])
 
     function likeButtonHandle(){
         if (selectedVideo !== null){
@@ -46,23 +49,38 @@ export default function VideoSection(){
             <ReactPlayer width={'100%'} height={'100%'} controls url={selectedVideo?.videoUrl}/>
             <h2>{selectedVideo?.title}</h2>
             <div className='w-100'>
-                <div>
-                    <Button variant='light' onClick={likeButtonHandle}>
-                        {favorite ?
-                            <AiFillLike size={'1.5em'}/>
-                            :
-                            <AiOutlineLike size={'1.5em'}/>
-                        }
-                    </Button>
-                </div>
-                <div className='d-flex justify-content-between border p-2'>
-                    <h4>
-                        {selectedVideo?.owner.displayName}
-                    </h4>
-                    <Button variant='primary'>
-                        Subscribe
-                    </Button>
-                </div>
+                {
+                    user !== null &&
+                    <>
+                        <div>
+                            <Button variant='light' onClick={likeButtonHandle}>
+                                {favorite ?
+                                    <AiFillLike size={'1.5em'}/>
+                                    :
+                                    <AiOutlineLike size={'1.5em'}/>
+                                }
+                            </Button>
+                        </div>
+                        <div className='d-flex justify-content-between border p-2'>
+                            <h4>
+                                {selectedVideo?.owner.displayName}
+                            </h4>
+                            <div>
+                                {selectedVideo?.owner.followersCount} 
+                                {selectedVideo?.owner.followersCount === 1 ? ' Subscriber' : ' Subscribers'}
+                            </div>
+                            
+                            <Button variant={selectedVideo?.owner.following ? 'danger' : 'primary'}>
+                                {
+                                    selectedVideo?.owner.following ? 
+                                    'Unsubscribe'
+                                    :
+                                    'Subscribe'
+                                }
+                            </Button>
+                        </div>
+                    </>
+                }
             </div>
         </div>
     )

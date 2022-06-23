@@ -1,0 +1,49 @@
+<Grid>
+    <div className='position-sticky top-0'>
+        <Nav className="d-flex flex-column">
+            {links.map((link,index)=>{
+
+                if (!link.requiredUser){
+                    return (
+                        <Nav.Link key={index} as={Link} to={`${link.link}`}>
+                            {isExpanded ? 
+                            (
+                                <>
+                                    {link.icon(25)}
+                                    <span className='ms-2'>{link.name}</span>
+                                </>
+                            ):(
+                                <div className='my-2 d-flex justify-content-center flex-column align-items-center'>
+                                    {link.icon(30)}
+                                    <span style={{fontSize:'0.75em'}}>{link.name}</span>
+                                </div>
+                            )}
+                            
+                        </Nav.Link>)
+                } else if (user !== null) {
+                    return (
+                        <Nav.Link key={index} as={Link} to={`${link.link}`}>
+                            {isExpanded ? 
+                            (
+                                <>
+                                    {link.icon(25)}
+                                    <span className='ms-2'>{link.name}</span>
+                                </>
+                            ):(
+                                <div className='my-2 d-flex justify-content-center flex-column align-items-center'>
+                                    {link.icon(30)}
+                                    <span style={{fontSize:'0.75em'}}>{link.name}</span>
+                                </div>
+                            )}
+                            
+                        </Nav.Link>)
+                } else {
+                    return null;
+                }
+            })}
+        </Nav>
+    </div>
+    <div>
+        <Outlet/>
+    </div>
+</Grid>

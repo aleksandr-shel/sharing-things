@@ -20,7 +20,7 @@ export default function AddVideoForm(){
     const {downloadVideoLoading} = useAppSelector(state => state.videoReducer)
 
     useEffect(()=>{
-        if(files !== undefined && files?.name.split('.')[1] !== 'mp4'){
+        if(files !== undefined && files?.name.split('.').at(-1) !== 'mp4'){
             setError(true);
         } else {
             setError(false);
@@ -51,7 +51,6 @@ export default function AddVideoForm(){
                 <Col sm={6}>
                     <Form className='w-50 mx-auto'>
                         <Form.Group>
-                            <Form.Label>Title</Form.Label>
                             <Form.Control required value={title} onChange={(e)=>setTitle(e.target.value)} type="text" placeholder="Title" />
                             {
                                 error && 

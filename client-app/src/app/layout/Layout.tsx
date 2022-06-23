@@ -40,12 +40,12 @@ export default function Layout(){
             icon: (size?:number)=> <AiOutlineGroup size={size}/>,
             requiredUser: true,
         },
-        {
-            name: 'History',
-            link: '/',
-            icon: (size?:number)=> <AiOutlineFieldTime size={size}/>,
-            requiredUser: true,
-        },
+        // {
+        //     name: 'History',
+        //     link: '/',
+        //     icon: (size?:number)=> <AiOutlineFieldTime size={size}/>,
+        //     requiredUser: true,
+        // },
     ]
     const Grid = styled.div`
         display:grid;
@@ -94,7 +94,7 @@ export default function Layout(){
                 </Navbar>
             </div>
             <Grid>
-                <div className='position-sticky top-0'>
+                <div className='sidebar'>
                     <Nav className="d-flex flex-column">
                         {links.map((link,index)=>{
 

@@ -18,7 +18,7 @@ export default function FavoriteList(){
         if (favoriteList.length == 0){
             dispatch(fetchFavoriteVideosList())
         }
-    },[dispatch])
+    },[dispatch, favoriteList.length])
 
     function selectVideo(id:string, video: Video){
         dispatch(videoActions.setSelectedVideo(video));

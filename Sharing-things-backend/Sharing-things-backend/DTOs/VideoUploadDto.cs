@@ -6,6 +6,7 @@ namespace Sharing_things_backend.DTOs
     public class VideoUploadDto
     {
         [AllowedExtensions(new string[] { ".mp4" })]
+        [MaxFileSizeAttribute(300000000)]
         public IFormFile File { get; set; }
 
         public string Title { get; set; }

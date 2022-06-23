@@ -1,6 +1,9 @@
 body{
     background-color: #eaeaea;
 }
+html { 
+    overflow-y: scroll; 
+}
 
 .dimmer{
     width: 100vw;
@@ -33,7 +36,12 @@ body{
     height: 14em;
     object-fit:cover;
 }
-
+/* sticky !important */
+.sidebar{
+    position: sticky;
+    top: 4rem;
+    height: calc(100vh - 4rem);
+}
 
 /* change size of video-card and image when window is less than 1000px wide */
 @media only screen and (max-width: 1000px) {

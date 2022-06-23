@@ -13,6 +13,9 @@ namespace Sharing_things_backend.Data
         public DbSet<Video> Videos { get; set; }
         public DbSet<UserFavorite> UserFavorites { get; set; }
 
+        public DbSet<UserFollowing> UserFollowings { get; set; }
+
+
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
@@ -27,6 +30,19 @@ namespace Sharing_things_backend.Data
                 .WithMany(x => x.UsersLiked)
                 .HasForeignKey(uf => uf.VideoId);
 
+            builder.Entity<UserFollowing>(b =>
+            {
+                b.HasKey(k => new { k.ObserverId, k.TargetId });
+                b.HasOne(o => o.Observer)
+                    .WithMany(f => f.Followings)
+                    .HasForeignKey(o => o.ObserverId)
+                    .OnDelete(DeleteBehavior.NoAction);
+
+                b.HasOne(o => o.Target)
+                    .WithMany(f => f.Followers)
+                    .HasForeignKey(o => o.TargetId)
+                    .OnDelete(DeleteBehavior.NoAction);
+            });
         }
     }
 }

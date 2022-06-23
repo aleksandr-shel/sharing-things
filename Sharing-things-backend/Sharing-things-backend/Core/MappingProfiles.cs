@@ -9,10 +9,16 @@ namespace Sharing_things_backend.Core
 
         public MappingProfiles()
         {
+            string currentUsername = null;
+
             CreateMap<VideoUpdateDto, Video>();
             CreateMap<AppUser, UserVideosDto>();
             CreateMap<Video, VideoDto>();
-            CreateMap<AppUser, OwnerDto>();
+            CreateMap<AppUser, ProfileDto>()
+                .ForMember(x => x.FollowersCount, d => d.MapFrom(s => s.Followers.Count))
+                .ForMember(x => x.FollowingCount, d => d.MapFrom(s => s.Followings.Count))
+                .ForMember(x => x.Following, d => d.MapFrom(s => s.Followers.Any(x => x.Observer.UserName == currentUsername)));
+
         }
     }
 }

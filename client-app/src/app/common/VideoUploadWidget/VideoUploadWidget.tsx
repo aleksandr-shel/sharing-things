@@ -27,6 +27,7 @@ export default function VideoUploadWidget({setFiles, setSrc}:Props){
 
             reader.onload = ()=>{
                 setSrc(reader.result)
+                console.log('finished')
             }
             reader.readAsDataURL(file);
             setFiles(file);

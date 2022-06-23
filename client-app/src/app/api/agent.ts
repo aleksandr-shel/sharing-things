@@ -1,5 +1,6 @@
 import axios, { AxiosError, AxiosResponse } from 'axios';
 import { toast } from 'react-toastify';
+import { Profile } from '../models/Profile';
 import { User, UserFormValues } from '../models/User';
 import { Video } from '../models/Video';
 import store from '../stores/store';
@@ -21,17 +22,12 @@ axios.interceptors.request.use(config=>{
 axios.interceptors.response.use( async response =>{
     await sleep(1000);
     return response;
-}, (error: AxiosError)=>{
-    const {status, statusText, data}= error.response!;
+}, (error:AxiosError)=>{
+    const {status} = error.response!;
     switch(status){
         case 400:
-            if (typeof data === 'string'){
-                toast.error(data);
-            }
-            else {
-                toast.error('400 Bad Request: '+ statusText);
-            }
-            
+            toast.error('400 Bad request');
+            console.log(error.response?.data)
             break;
         case 401:
             toast.error('401 Unauthorized');
@@ -66,7 +62,9 @@ const Videos = {
         let formData = new FormData();
         formData.append('File', file);
         formData.append('Title', title);
-        return axios.post<Video>('video', formData)
+        return axios.post<Video>('video', formData,{
+            headers: {'Content-type':'multipart/form-data'}
+        })
     },
     favoriteList: () => requests.get<Video[]>('/favorite/list'),
     toggleFavorite: (id: string)=> axios.post(`/favorite/${id}`, {}),
@@ -79,9 +77,16 @@ const Account = {
     current: ()=> requests.get<User>('/account/current')
 }
 
+const Profiles = {
+    listProfiles: () => requests.get<Profile[]>('/profile/list'),
+    listFollowing: () => requests.get<Profile[]>(`/follow/list`),
+    updateFollowing: (username:string)=>axios.post(`/follow/${username}`,{}).then(response => response.status)
+}
+
 const agent = {
     Videos,
-    Account
+    Account,
+    Profiles
 }
 
 export default agent;
