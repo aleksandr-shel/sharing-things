@@ -6,6 +6,7 @@ import { useAppDispatch, useAppSelector } from '../../../app/stores/redux-hooks'
 import {AiFillLike, AiOutlineLike} from 'react-icons/ai'
 import { Button } from 'react-bootstrap';
 import agent from '../../../app/api/agent';
+import ProfileInfo from './ProfileInfo';
 
 
 export default function VideoSection(){
@@ -61,24 +62,7 @@ export default function VideoSection(){
                                 }
                             </Button>
                         </div>
-                        <div className='d-flex justify-content-between border p-2'>
-                            <h4>
-                                {selectedVideo?.owner.displayName}
-                            </h4>
-                            <div>
-                                {selectedVideo?.owner.followersCount} 
-                                {selectedVideo?.owner.followersCount === 1 ? ' Subscriber' : ' Subscribers'}
-                            </div>
-                            
-                            <Button variant={selectedVideo?.owner.following ? 'danger' : 'primary'}>
-                                {
-                                    selectedVideo?.owner.following ? 
-                                    'Unsubscribe'
-                                    :
-                                    'Subscribe'
-                                }
-                            </Button>
-                        </div>
+                        <ProfileInfo profile={selectedVideo?.owner!}/>
                     </>
                 }
             </div>

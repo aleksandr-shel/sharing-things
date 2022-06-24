@@ -4,6 +4,7 @@ import { ToastContainer } from 'react-toastify';
 import FavoriteList from '../features/videos/Favorite/FavoriteList';
 import AddVideoForm from '../features/videos/Form/AddVideoForm';
 import Main from '../features/videos/Main';
+import SubscriptionsVideoList from '../features/videos/SubscriptionsVideoList/SubscriptionsVideoList';
 import MovieDetails from '../features/videos/VideoDetails/MovieDetails';
 import ModalContainer from './common/modals/ModalContainer';
 import Layout from './layout/Layout';
@@ -32,6 +33,7 @@ function App() {
           <Route path='/videos/:id' element={<MovieDetails/>}/>
           <Route path='share-video' element={<AddVideoForm/>}/>
           <Route path='favorites' element={<FavoriteList/>}/>
+          <Route path="subscriptions-videos" element={<SubscriptionsVideoList/>}/>
         </Route>
       </Routes>
     </>

@@ -4,12 +4,14 @@ import { RootState } from "../store";
 import agent from "../../api/agent";
 import { UserFormValues } from "../../models/User";
 import { closeModal } from "../slices/modalSlice";
+import { setSelectedVideo, setVideos } from "../slices/videoSlice";
+import { fetchVideos } from "./videoActions";
 
 export const userActions = userSlice.actions;
 
 
 export const login = (user: UserFormValues):ThunkAction<void, RootState, unknown, AnyAction>=>{
-    return async (dispatch)=>{
+    return async (dispatch, getState)=>{
         try{
             dispatch(userActions.setLoading(true))
             const response = await agent.Account.login(user);
@@ -17,6 +19,9 @@ export const login = (user: UserFormValues):ThunkAction<void, RootState, unknown
             dispatch(userActions.setToken(response.token));
             window.localStorage.setItem('sharing-things-token', response.token)
             dispatch(userActions.setLoading(false))
+            dispatch(setVideos([]))
+            dispatch(setSelectedVideo(null))
+            dispatch(fetchVideos())
             dispatch(closeModal())
         }catch(error){
             console.log(error);
@@ -34,6 +39,9 @@ export const register = (user: UserFormValues):ThunkAction<void, RootState, unkn
             dispatch(userActions.setToken(response.token))
             window.localStorage.setItem('sharing-things-token', response.token)
             dispatch(userActions.setLoading(false))
+            dispatch(setVideos([]))
+            dispatch(setSelectedVideo(null))
+            dispatch(fetchVideos())
             dispatch(closeModal())
         }catch(error){
             console.log(error);

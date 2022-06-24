@@ -1,24 +1,34 @@
 import React, {useState } from 'react';
 import { Navbar, Container, Nav, NavDropdown, Form, FormControl, Button, Image} from 'react-bootstrap';
-import { Outlet } from 'react-router-dom';
+import { Outlet, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
-import {AiOutlineMenu, AiTwotoneHome, AiFillLike, AiOutlineFieldTime, AiOutlineGroup, AiOutlineVideoCameraAdd} from 'react-icons/ai';
+import {AiOutlineMenu, AiTwotoneHome, AiFillLike, AiOutlineGroup, AiOutlineVideoCameraAdd} from 'react-icons/ai';
 import {Link} from 'react-router-dom';
 import { openModal } from '../stores/slices/modalSlice';
 import Login from '../../features/users/Login';
 import { useAppDispatch, useAppSelector } from '../stores/redux-hooks';
 import Register from '../../features/users/Register';
 import { logout } from '../stores/slices/userSlice';
+import { fetchVideos } from '../stores/actions/videoActions';
+import { setVideos } from '../stores/slices/videoSlice';
 
 
 export default function Layout(){
 
     const [isExpanded, setExpanded] = useState<boolean>(true);
     const dispatch = useAppDispatch();
+    const navigate = useNavigate();
     const {user} = useAppSelector(state=> state.userReducer);
 
     function toggleHamburgerButton(){
         setExpanded(!isExpanded)
+    }
+
+    function logoutHandler(){
+        navigate('/')
+        dispatch(setVideos([]))
+        dispatch(logout());
+        dispatch(fetchVideos())
     }
 
     const links = [
@@ -36,7 +46,7 @@ export default function Layout(){
         },
         {
             name: 'Subscriptions',
-            link: '/',
+            link: '/subscriptions-videos',
             icon: (size?:number)=> <AiOutlineGroup size={size}/>,
             requiredUser: true,
         },
@@ -83,11 +93,15 @@ export default function Layout(){
                             {
                                 user == null ?
                                 <>
-                                    <NavDropdown.Item onClick={()=>dispatch(openModal(<Login/>))}>Login</NavDropdown.Item>
-                                    <NavDropdown.Item onClick={()=>dispatch(openModal(<Register/>))}>Register</NavDropdown.Item>
+                                    <NavDropdown.Item onClick={()=>{
+                                        dispatch(openModal(<Login/>))
+                                    }}>Login</NavDropdown.Item>
+                                    <NavDropdown.Item onClick={()=>{
+                                        dispatch(openModal(<Register/>))
+                                    }}>Register</NavDropdown.Item>
                                 </>
                                 :
-                                <NavDropdown.Item onClick={()=> dispatch(logout())}>Logout</NavDropdown.Item>
+                                <NavDropdown.Item onClick={logoutHandler}>Logout</NavDropdown.Item>
                             }
                         </NavDropdown>
                     </Container>

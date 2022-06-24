@@ -55,3 +55,13 @@ export const toggleFavorite = (video: Video):ThunkAction<void, RootState, unknow
         }
     }
 }
+
+
+export const fetchSubscriptionVideos = (): ThunkAction<void, RootState, unknown, AnyAction> =>{
+    return async(dispatch)=>{
+        dispatch(videoActions.setLoadingSubscriptions(true))
+        const response = await agent.Videos.subscriptionsList();
+        dispatch(videoActions.setSubscriptionsList(response))
+        dispatch(videoActions.setLoadingSubscriptions(false))
+    }
+}

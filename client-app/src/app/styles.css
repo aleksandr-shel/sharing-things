@@ -29,28 +29,31 @@ html {
 }
 .main-video-item{
     width: 18em;
-    height: 14em;
+    height: 10em;
 }
 .video-item-img{
     width: 18em;
-    height: 14em;
+    height: 10em;
     object-fit:cover;
 }
+
+
 /* sticky !important */
 .sidebar{
     position: sticky;
     top: 4rem;
     height: calc(100vh - 4rem);
+    overflow-y: auto;
 }
 
 /* change size of video-card and image when window is less than 1000px wide */
 @media only screen and (max-width: 1000px) {
     .video-item-img{
         width: 14em;
-        height: 10em;
+        height: 8em;
     }
     .main-video-item{
         width: 14em;
-        height: 10em;
+        height: 8em;
     }
 }

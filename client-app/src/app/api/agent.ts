@@ -79,10 +79,11 @@ const Account = {
 }
 
 const Profiles = {
-    listProfiles: () => requests.get<Profile[]>('/profile/list'),
     listFollowing: () => requests.get<Profile[]>(`/follow/list`),
     updateFollowing: (username:string)=>axios.post(`/follow/${username}`,{}).then(response => response.status),
-    getSingleProfile: (username:string) => requests.get<Profile>(`/profile/list/${username}`)
+    listProfiles: () => requests.get<Profile[]>('/profile/list'),
+    getSingleProfile: (username:string) => requests.get<Profile>(`/profile/list/${username}`),
+    getProfileVideos: (username: string)=> requests.get<Video[]>(`/profile/${username}/videos`)
 }
 
 const agent = {

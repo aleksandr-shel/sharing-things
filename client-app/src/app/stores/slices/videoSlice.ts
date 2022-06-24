@@ -8,7 +8,9 @@ interface VideoStateModel{
     loading: boolean,
     downloadVideoLoading: boolean,
     favoriteList: Video[],
-    loadingFavorite: boolean
+    loadingFavorite: boolean,
+    subscriptionsVideoList: Video[],
+    loadingSubscriptions: boolean
 }
 
 const initialState:VideoStateModel = {
@@ -17,7 +19,9 @@ const initialState:VideoStateModel = {
     loading: false,
     downloadVideoLoading: false,
     favoriteList: [],
-    loadingFavorite: false
+    loadingFavorite: false,
+    subscriptionsVideoList: [],
+    loadingSubscriptions: false
 }
 
 const videoSlice = createSlice({
@@ -27,7 +31,7 @@ const videoSlice = createSlice({
         setVideos:(state, action: PayloadAction<Video[]>)=>{
             state.videos = action.payload
         },
-        setSelectedVideo:(state, action: PayloadAction<Video>)=>{
+        setSelectedVideo:(state, action: PayloadAction<Video | null>)=>{
             state.selectedVideo = action.payload;
         },
         setLoading:(state, action: PayloadAction<boolean>)=>{
@@ -54,10 +58,16 @@ const videoSlice = createSlice({
         },
         setLoadingFavorite: (state, action: PayloadAction<boolean>)=>{
             state.loadingFavorite = action.payload;
-        }
+        },
+        setSubscriptionsList: (state, action: PayloadAction<Video[]>)=>{
+            state.subscriptionsVideoList = action.payload;
+        },
+        setLoadingSubscriptions: (state,action: PayloadAction<boolean>)=>{
+            state.loadingSubscriptions = action.payload;
+        },
     }
 })
 
-export const {setFavoriteList, toggleFavorite} = videoSlice.actions;
+export const {setFavoriteList, toggleFavorite, setVideos, setSelectedVideo} = videoSlice.actions;
 
 export default videoSlice;

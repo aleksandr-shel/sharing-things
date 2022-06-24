@@ -21,4 +21,8 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Sharing-things-backend\Sharing-things-backend.csproj" />
+  </ItemGroup>
+
 </Project>

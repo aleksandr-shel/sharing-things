@@ -5,12 +5,16 @@ interface ProfileState {
     selectedProfile: Profile | null,
     followingList: Profile[],
     profilesList: Profile[],
+    loadingProfile: boolean,
+    updatingFollowing: boolean
 }
 
 const initialState: ProfileState = {
     selectedProfile: null,
     followingList: [],
-    profilesList: []
+    profilesList: [],
+    loadingProfile: false,
+    updatingFollowing: false
 }
 
 
@@ -37,6 +41,17 @@ const profileSlice = createSlice({
         },
         addProfilesList: (state, action: PayloadAction<Profile[]>)=>{
             state.profilesList = state.profilesList.concat(action.payload);
+        },
+        setLoadingProfile: (state, action: PayloadAction<boolean>)=>{
+            state.loadingProfile = action.payload;
+        },
+        setUpdatingFollowing: (state, action: PayloadAction<boolean>)=>{
+            state.updatingFollowing = action.payload;
+        },
+        updateSelectedProfileFollowing: (state, action: PayloadAction<boolean>)=>{
+            const followers =  state.selectedProfile?.followersCount;
+            const subs = action.payload ? followers! + 1 : followers! -1 
+            state.selectedProfile = {...state.selectedProfile!, following: action.payload, followersCount: subs}
         }
     }
 })

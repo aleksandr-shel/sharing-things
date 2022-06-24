@@ -40,5 +40,17 @@ namespace Sharing_things_backend.Controllers
                 .FirstOrDefaultAsync(x => x.Username == username);
             return Ok(profile);
         }
+
+
+        [HttpGet("{username}/videos")]
+        public async Task<ActionResult<List<VideoDto>>> Videos(string username)
+        {
+            var videos = await _context.Videos
+                .Where(x => x.Owner.UserName == username)
+                .ProjectTo<VideoDto>(_mapper.ConfigurationProvider, new { currentUsername = User.FindFirstValue(ClaimTypes.Name) })
+                .ToListAsync();
+
+            return Ok(videos);
+        }
     }
 }

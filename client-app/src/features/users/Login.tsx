@@ -5,7 +5,6 @@ import { Button, Form, FormLabel, Spinner} from "react-bootstrap";
 import * as Yup from 'yup';
 import { useAppDispatch, useAppSelector } from "../../app/stores/redux-hooks";
 
-
 export default function Login(){
 
     const validationSchema = Yup.object({
@@ -19,9 +18,8 @@ export default function Login(){
         <Formik
             initialValues={{email:'', password:'', error:null}}
             validationSchema={validationSchema}
-            onSubmit = {(values, actions)=>{
+            onSubmit = {(values)=>{
                 dispatch(login(values));
-                // actions.setSubmitting(false);
             }}
         >
             {

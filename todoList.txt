@@ -1,0 +1,16 @@
+-create profile page
+--profile picture, just random picture
+--list videos of a current profile
+
+-list subscriptions on the sidebar from where user can go to profile pages
+
+-pagination for a lot of controllers
+
+(optional)
+-comments 
+--dynamoDb table
+---implement backend
+---then add signalR
+
+-suggestions on the right sidebar when user is on video details page
+---some easiest implementation

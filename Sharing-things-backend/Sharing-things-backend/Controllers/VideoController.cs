@@ -173,6 +173,7 @@ namespace Sharing_things_backend.Controllers
             var videos = await (from v in _context.Videos
                                 join u in _context.UserFollowings on v.Owner.UserName equals u.Target.UserName
                                 where u.Observer.UserName == User.FindFirstValue(ClaimTypes.Name)
+                                orderby v.AddedAt
                                 select v)
                          .ProjectTo<VideoDto>(_mapper.ConfigurationProvider, new { currentUsername = User.FindFirstValue(ClaimTypes.Name) })
                          .ToListAsync();
