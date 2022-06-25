@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { Button, Spinner } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import { Profile } from '../../../app/models/Profile';
 import { getProfile, updateFollowing } from '../../../app/stores/actions/profileActions';
 import { useAppDispatch, useAppSelector } from '../../../app/stores/redux-hooks';
@@ -31,31 +32,36 @@ export default function ProfileInfo({profile}:Props){
 
         <div className='d-flex justify-content-between border p-2'>
             <h4>
-                {selectedProfile.displayName}
+                <Link style={{textDecoration: 'none'}} to={`/profiles/${selectedProfile.username}`}>
+                    {selectedProfile.displayName}
+                </Link>
             </h4>
             <div>
-                {selectedProfile.followersCount} 
-                {selectedProfile.followersCount === 1 ? ' Subscriber' : ' Subscribers'}
-            </div>
+                <span className='mx-2'>
+                    {selectedProfile.followersCount} 
+                    {selectedProfile.followersCount === 1 ? ' Subscriber' : ' Subscribers'}
+                </span>
             
-            {/* if current user is selected profile then no subscribe button */}
-            {user?.username !== selectedProfile.username &&
-                <Button onClick={handleFollowing} variant={selectedProfile.following ? 'danger' : 'primary'}>
-                    {
-                        updatingFollowing ?
-                        <Spinner animation="border"/>
-                        :
-                        <>
+            
+                {/* if current user is selected profile then no subscribe button */}
+                {user?.username !== selectedProfile.username &&
+                    <Button onClick={handleFollowing} variant={selectedProfile.following ? 'danger' : 'primary'}>
                         {
-                            selectedProfile.following ? 
-                            'Unsubscribe'
+                            updatingFollowing ?
+                            <Spinner animation="border"/>
                             :
-                            'Subscribe'
+                            <>
+                            {
+                                selectedProfile.following ? 
+                                'Unsubscribe'
+                                :
+                                'Subscribe'
+                            }
+                            </>
                         }
-                        </>
-                    }
-                </Button>
-            }
+                    </Button>
+                }
+            </div>
         </div>
     )
 }

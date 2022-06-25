@@ -1,12 +1,15 @@
 import {createSlice, PayloadAction} from '@reduxjs/toolkit'
 import { Profile } from '../../models/Profile'
+import { Video } from '../../models/Video'
 
 interface ProfileState {
     selectedProfile: Profile | null,
     followingList: Profile[],
     profilesList: Profile[],
     loadingProfile: boolean,
-    updatingFollowing: boolean
+    updatingFollowing: boolean,
+    profileVideos: Video[],
+    loadingProfileVideos: boolean,
 }
 
 const initialState: ProfileState = {
@@ -14,7 +17,9 @@ const initialState: ProfileState = {
     followingList: [],
     profilesList: [],
     loadingProfile: false,
-    updatingFollowing: false
+    updatingFollowing: false,
+    profileVideos: [],
+    loadingProfileVideos: false
 }
 
 
@@ -52,11 +57,17 @@ const profileSlice = createSlice({
             const followers =  state.selectedProfile?.followersCount;
             const subs = action.payload ? followers! + 1 : followers! -1 
             state.selectedProfile = {...state.selectedProfile!, following: action.payload, followersCount: subs}
+        },
+        setProfileVideos: (state, action: PayloadAction<Video[]>)=>{
+            state.profileVideos = action.payload;
+        },
+        setLoadingProfileVideos: (state, action: PayloadAction<boolean>)=>{
+            state.loadingProfileVideos = action.payload;
         }
     }
 })
 
 export const {setSelectedProfile, setFollowingList, addFollowing, removeFollowing,
-    setProfilesList, addProfilesList} = profileSlice.actions;
+    setProfilesList, addProfilesList, setProfileVideos, setLoadingProfileVideos} = profileSlice.actions;
 
 export default profileSlice;

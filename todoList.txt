@@ -6,6 +6,9 @@
 
 -pagination for a lot of controllers
 
+-search on backend 
+--search on fronend
+
 (optional)
 -comments 
 --dynamoDb table

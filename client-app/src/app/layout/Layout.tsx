@@ -11,6 +11,8 @@ import Register from '../../features/users/Register';
 import { logout } from '../stores/slices/userSlice';
 import { fetchVideos } from '../stores/actions/videoActions';
 import { setVideos } from '../stores/slices/videoSlice';
+import FollowingListOnSidebar from './FollowingListOnSidebar';
+import {setFollowingList} from '../stores/slices/profileSlice';
 
 
 export default function Layout(){
@@ -19,6 +21,7 @@ export default function Layout(){
     const dispatch = useAppDispatch();
     const navigate = useNavigate();
     const {user} = useAppSelector(state=> state.userReducer);
+    
 
     function toggleHamburgerButton(){
         setExpanded(!isExpanded)
@@ -27,6 +30,7 @@ export default function Layout(){
     function logoutHandler(){
         navigate('/')
         dispatch(setVideos([]))
+        dispatch(setFollowingList([]))
         dispatch(logout());
         dispatch(fetchVideos())
     }
@@ -89,7 +93,7 @@ export default function Layout(){
                                 <Nav.Link as={Link} to='/share-video'><AiOutlineVideoCameraAdd/></Nav.Link>
                             }
                         </Nav>
-                        <NavDropdown key="user-nav" title={user==null ? "Login/Register" : user.displayName} id="basic-nav-dropdown">
+                        <NavDropdown className='me-3' key="user-nav" title={user==null ? "Login/Register" : user.displayName} id="basic-nav-dropdown">
                             {
                                 user == null ?
                                 <>
@@ -101,7 +105,11 @@ export default function Layout(){
                                     }}>Register</NavDropdown.Item>
                                 </>
                                 :
-                                <NavDropdown.Item onClick={logoutHandler}>Logout</NavDropdown.Item>
+                                <>
+                                    <NavDropdown.Item as={Link} to={`/profiles/${user.username}`}>My Profile</NavDropdown.Item>
+                                    <NavDropdown.Divider />
+                                    <NavDropdown.Item onClick={logoutHandler}>Logout</NavDropdown.Item>
+                                </>
                             }
                         </NavDropdown>
                     </Container>
@@ -150,6 +158,7 @@ export default function Layout(){
                                 return null;
                             }
                         })}
+                        <FollowingListOnSidebar user={user} isExpanded={isExpanded}/>
                     </Nav>
                 </div>
                 <div>

@@ -9,7 +9,7 @@ interface Props{
     video: Video;
 }
 
-export default function MainVideoItem({video}:Props){
+export default function ProfileVideoItem({video}:Props){
 
     const navigate = useNavigate();
     const dispatch = useAppDispatch();
@@ -21,12 +21,12 @@ export default function MainVideoItem({video}:Props){
 
     return(
         <Card className='position-relative main-video-item mx-1 my-1'>
-            <Card.Img variant="bottom" className='video-item-img' src={`pic${Math.ceil(Math.random() * 5)}.jpg`}/>
-            {/* <div>
+            {/* <Card.Img variant="bottom" className='video-item-img' src={`pic${Math.ceil(Math.random() * 5)}.jpg`}/> */}
+            <div>
                 <video width={'100%'}>
                     <source src={video.videoUrl + '#t=0.5'}/>
                 </video>
-            </div> */}
+            </div>
             <Card.Body className='video-item-body position-absolute bottom-0 w-100 align-items-center justify-content-center opacity-75'>
                 <Button onClick={()=>selectVideo(video.id)} variant="light" className='w-100'>{video.title}</Button>
             </Card.Body>
