@@ -1,5 +1,6 @@
 import axios, { AxiosError, AxiosResponse } from 'axios';
 import { toast } from 'react-toastify';
+import { PaginatedResult } from '../models/pagination';
 import { Profile } from '../models/Profile';
 import { User, UserFormValues } from '../models/User';
 import { Video } from '../models/Video';
@@ -21,6 +22,12 @@ axios.interceptors.request.use(config=>{
 
 axios.interceptors.response.use( async response =>{
     await sleep(1000);
+
+    const pagination = response.headers['pagination'];
+    if (pagination){
+        response.data = new PaginatedResult(response.data, JSON.parse(pagination));
+        return response as AxiosResponse<PaginatedResult<any>>
+    }
     return response;
 }, (error:AxiosError)=>{
     const {status} = error.response!;
@@ -56,7 +63,7 @@ const requests = {
 
 
 const Videos = {
-    list: ()=> requests.get<Video[]>('/video/list'),
+    list: (params : URLSearchParams)=> axios.get<PaginatedResult<Video[]>>('/video/list',{params}).then(responseBody),
     details: (id:string)=> requests.get<Video>(`/video/${id}`),
     uploadVideo: (file: File, title:string)=> {
         let formData = new FormData();

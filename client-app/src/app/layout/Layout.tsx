@@ -10,7 +10,7 @@ import { useAppDispatch, useAppSelector } from '../stores/redux-hooks';
 import Register from '../../features/users/Register';
 import { logout } from '../stores/slices/userSlice';
 import { fetchVideos } from '../stores/actions/videoActions';
-import { setVideos } from '../stores/slices/videoSlice';
+import { setPageNumber, setVideos } from '../stores/slices/videoSlice';
 import FollowingListOnSidebar from './FollowingListOnSidebar';
 import {setFollowingList} from '../stores/slices/profileSlice';
 
@@ -29,6 +29,7 @@ export default function Layout(){
 
     function logoutHandler(){
         navigate('/')
+        dispatch(setPageNumber(1))
         dispatch(setVideos([]))
         dispatch(setFollowingList([]))
         dispatch(logout());

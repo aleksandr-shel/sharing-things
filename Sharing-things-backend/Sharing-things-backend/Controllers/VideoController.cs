@@ -14,12 +14,14 @@ using Sharing_things_backend.Services;
 using System.Security.Claims;
 using AutoMapper.QueryableExtensions;
 using System.Text.Json;
+using Sharing_things_backend.Core;
+using Sharing_things_backend.Extensions;
 
 namespace Sharing_things_backend.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class VideoController : ControllerBase
+    public class VideoController : BaseApiController
     {
         private readonly ILogger<VideoController> _logger;
         private readonly IMapper _mapper;
@@ -94,12 +96,13 @@ namespace Sharing_things_backend.Controllers
 
         [HttpGet("list")]
         [AllowAnonymous]
-        public async Task<ActionResult> VideoList()
+        public async Task<IActionResult> VideoList([FromQuery]PagingParams param)
         {
-            var videos = await _context.Videos
-                .ProjectTo<VideoDto>(_mapper.ConfigurationProvider, new { currentUsername = User.FindFirstValue(ClaimTypes.Name) })
-                .ToListAsync();
-            return Ok(videos);
+            var query = _context.Videos
+                .OrderByDescending(x => x.AddedAt)
+                .ProjectTo<VideoDto>(_mapper.ConfigurationProvider, new { currentUsername = User.FindFirstValue(ClaimTypes.Name) });
+
+            return await HandlePagedList(query, param);
         }
 
         [HttpGet("{id}")]

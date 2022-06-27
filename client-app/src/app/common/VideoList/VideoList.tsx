@@ -15,8 +15,8 @@ export default function VideoList({videos, selectVideo}:Props){
                 return (
                     <ListGroup.Item key={video.id} className='d-flex'  action onClick={()=>selectVideo(video.id, video)}>
                         <div className='w-25'>
-                            <video width={'100%'}>
-                                <source src={video.videoUrl + '#t=0.5'}/>
+                            <video width={'100%'} preload='metadata'>
+                                <source src={video.videoUrl + `#t=10`}/>
                             </video>
                         </div>
                         <div className='ms-5'>

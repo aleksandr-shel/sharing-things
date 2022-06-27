@@ -1,4 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { Pagination } from "../../models/pagination";
 import { Video } from "../../models/Video";
 
 
@@ -10,7 +11,12 @@ interface VideoStateModel{
     favoriteList: Video[],
     loadingFavorite: boolean,
     subscriptionsVideoList: Video[],
-    loadingSubscriptions: boolean
+    loadingSubscriptions: boolean,
+    pagination: Pagination | null,
+    pagingParam: {
+        pageNumber: number,
+        pageSize: number
+    }
 }
 
 const initialState:VideoStateModel = {
@@ -21,7 +27,12 @@ const initialState:VideoStateModel = {
     favoriteList: [],
     loadingFavorite: false,
     subscriptionsVideoList: [],
-    loadingSubscriptions: false
+    loadingSubscriptions: false,
+    pagination: null,
+    pagingParam: {
+        pageNumber: 1,
+        pageSize: 9
+    }
 }
 
 const videoSlice = createSlice({
@@ -30,6 +41,9 @@ const videoSlice = createSlice({
     reducers:{
         setVideos:(state, action: PayloadAction<Video[]>)=>{
             state.videos = action.payload
+        },
+        addVideos: (state, action: PayloadAction<Video[]>)=>{
+            state.videos = state.videos.concat(action.payload);
         },
         setSelectedVideo:(state, action: PayloadAction<Video | null>)=>{
             state.selectedVideo = action.payload;
@@ -65,9 +79,15 @@ const videoSlice = createSlice({
         setLoadingSubscriptions: (state,action: PayloadAction<boolean>)=>{
             state.loadingSubscriptions = action.payload;
         },
+        setPagination: (state, action: PayloadAction<Pagination>)=>{
+            state.pagination = action.payload;
+        },
+        setPageNumber: (state, action: PayloadAction<number>) =>{
+            state.pagingParam.pageNumber = action.payload
+        },
     }
 })
 
-export const {setFavoriteList, toggleFavorite, setVideos, setSelectedVideo} = videoSlice.actions;
+export const {setFavoriteList, toggleFavorite, setVideos, setSelectedVideo, setPagination, addVideos, setPageNumber} = videoSlice.actions;
 
 export default videoSlice;

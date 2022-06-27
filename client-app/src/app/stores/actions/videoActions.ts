@@ -1,4 +1,4 @@
-import videoSlice from "../slices/videoSlice";
+import videoSlice, { addVideos, setPagination, setVideos } from "../slices/videoSlice";
 import agent from "../../api/agent";
 import { AnyAction, ThunkAction} from "@reduxjs/toolkit";
 import { RootState } from "../store";
@@ -11,12 +11,30 @@ export const videoActions = videoSlice.actions;
 
 export const fetchVideos = ():ThunkAction<void, RootState, unknown, AnyAction>=>{
     return async(dispatch, getState)=>{
-        if(getState().videoReducer.videos.length <= 1){
-            dispatch(videoActions.setLoading(true))
-            const response:Video[] = await agent.Videos.list();
-            dispatch(videoActions.setVideos(response))
-            dispatch(videoActions.setLoading(false))
-        }
+        const params = new URLSearchParams();
+        const {pagingParam} = getState().videoReducer;
+        params.append('pageNumber', pagingParam.pageNumber.toString());
+        params.append('pageSize', pagingParam.pageSize.toString())
+        dispatch(videoActions.setLoading(true))
+        const result  = await agent.Videos.list(params);
+        dispatch(setVideos(result.data))
+        dispatch(setPagination(result.pagination))
+        dispatch(videoActions.setLoading(false))
+    }
+}
+
+
+export const fetchNextVideos = ():ThunkAction<void, RootState, unknown, AnyAction>=>{
+    return async(dispatch, getState)=>{
+        const params = new URLSearchParams();
+        const {pagingParam} = getState().videoReducer;
+        params.append('pageNumber', pagingParam.pageNumber.toString());
+        params.append('pageSize', pagingParam.pageSize.toString())
+        dispatch(videoActions.setLoading(true))
+        const result  = await agent.Videos.list(params);
+        dispatch(addVideos(result.data))
+        dispatch(setPagination(result.pagination))
+        dispatch(videoActions.setLoading(false))
     }
 }
 
