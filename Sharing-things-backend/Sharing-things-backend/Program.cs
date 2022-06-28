@@ -7,6 +7,7 @@ using Sharing_things_backend.Data;
 using Sharing_things_backend.Domain;
 using Sharing_things_backend.DTOs;
 using Sharing_things_backend.Extensions;
+using Sharing_things_backend.SignalR;
 
 var builder = WebApplication.CreateBuilder(args);
 var config = builder.Configuration;
@@ -63,5 +64,7 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
+
+app.MapHub<ChatHub>("/chat");
 
 app.Run();

@@ -1,12 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "2MpprjTyG64ZQxUjF2SYK5KENldhyttx00VzSrGWa7bODPxab6Dv/s/NbMzZ0M1z1DA2wObp6E0yNg4cpLcOXA==",
+  "dgSpecHash": "6XJ8GzUdUlNUdNbWS3VgKxiGm82WM8TWhYp837ACda5sXAX4gR4QQvj7+8F7skNQLx3JwurWK+gptAxp9eJnuA==",
   "success": true,
   "projectFilePath": "C:\\Web Development Projects\\sharing-things\\Sharing-things-backend\\Test-Sharing-things\\Test-Sharing-things.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\msi123\\.nuget\\packages\\automapper\\11.0.1\\automapper.11.0.1.nupkg.sha512",
-    "C:\\Users\\msi123\\.nuget\\packages\\awssdk.core\\3.7.11.11\\awssdk.core.3.7.11.11.nupkg.sha512",
-    "C:\\Users\\msi123\\.nuget\\packages\\awssdk.dynamodbv2\\3.7.3.43\\awssdk.dynamodbv2.3.7.3.43.nupkg.sha512",
+    "C:\\Users\\msi123\\.nuget\\packages\\awssdk.core\\3.7.12.3\\awssdk.core.3.7.12.3.nupkg.sha512",
+    "C:\\Users\\msi123\\.nuget\\packages\\awssdk.dynamodbv2\\3.7.3.51\\awssdk.dynamodbv2.3.7.3.51.nupkg.sha512",
     "C:\\Users\\msi123\\.nuget\\packages\\awssdk.s3\\3.7.9.11\\awssdk.s3.3.7.9.11.nupkg.sha512",
     "C:\\Users\\msi123\\.nuget\\packages\\coverlet.collector\\3.1.0\\coverlet.collector.3.1.0.nupkg.sha512",
     "C:\\Users\\msi123\\.nuget\\packages\\fluentvalidation\\11.0.2\\fluentvalidation.11.0.2.nupkg.sha512",
