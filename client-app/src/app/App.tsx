@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import {Routes, Route} from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import ProfilePage from '../features/profiles/ProfilePage';
+import SearchResultList from '../features/search/SearchResultList';
 import FavoriteList from '../features/videos/Favorite/FavoriteList';
 import AddVideoForm from '../features/videos/Form/AddVideoForm';
 import Main from '../features/videos/Main';
@@ -36,6 +37,7 @@ function App() {
           <Route path='favorites' element={<FavoriteList/>}/>
           <Route path="subscriptions-videos" element={<SubscriptionsVideoList/>}/>
           <Route path="/profiles/:username" element={<ProfilePage/>}/>
+          <Route path='/search-page' element={<SearchResultList/>} />
         </Route>
       </Routes>
     </>

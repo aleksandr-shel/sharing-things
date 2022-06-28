@@ -10,7 +10,7 @@ interface Props{
 export default function VideoList({videos, selectVideo}:Props){
 
     return (
-        <ListGroup className='w-75'>
+        <ListGroup className='w-75 mx-3 my-2'>
             {videos.map(video =>{
                 return (
                     <ListGroup.Item key={video.id} className='d-flex'  action onClick={()=>selectVideo(video.id, video)}>

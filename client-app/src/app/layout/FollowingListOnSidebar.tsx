@@ -21,7 +21,7 @@ export default function FollowingListOnSidebar({user, isExpanded}:Props){
 
     function loadFollowing(){
         setOpen(!open)
-        if (followingList.length === 0){
+        if (followingList.length <= 1){
             dispatch(fetchFollowingList())
         }
     }

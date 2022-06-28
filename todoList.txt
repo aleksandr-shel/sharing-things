@@ -1,10 +1,11 @@
--create profile page
+-create profile page - done
 --profile picture, just random picture
---list videos of a current profile
+--list videos of a current profile - done
 
--list subscriptions on the sidebar from where user can go to profile pages
+-list subscriptions on the sidebar from where user can go to profile page - done
 
--pagination for a lot of controllers
+-pagination for a lot of controllers 
+--pagination for videos -- done
 
 -search on backend 
 --search on fronend

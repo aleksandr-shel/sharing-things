@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using AutoMapper.QueryableExtensions;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -43,6 +44,7 @@ namespace Sharing_things_backend.Controllers
 
 
         [HttpGet("{username}/videos")]
+        [AllowAnonymous]
         public async Task<ActionResult<List<VideoDto>>> Videos(string username)
         {
             var videos = await _context.Videos

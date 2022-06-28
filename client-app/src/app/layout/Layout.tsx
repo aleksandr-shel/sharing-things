@@ -1,5 +1,5 @@
 import React, {useState } from 'react';
-import { Navbar, Container, Nav, NavDropdown, Form, FormControl, Button, Image} from 'react-bootstrap';
+import { Navbar, Container, Nav, NavDropdown, Button, Image} from 'react-bootstrap';
 import { Outlet, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import {AiOutlineMenu, AiTwotoneHome, AiFillLike, AiOutlineGroup, AiOutlineVideoCameraAdd} from 'react-icons/ai';
@@ -13,6 +13,7 @@ import { fetchVideos } from '../stores/actions/videoActions';
 import { setPageNumber, setVideos } from '../stores/slices/videoSlice';
 import FollowingListOnSidebar from './FollowingListOnSidebar';
 import {setFollowingList} from '../stores/slices/profileSlice';
+import SearchForm from '../../features/search/SearchForm';
 
 
 export default function Layout(){
@@ -79,15 +80,7 @@ export default function Layout(){
                             {' '}
                             Sharing things
                         </Navbar.Brand>
-                        <Form className="d-flex mx-auto w-50">
-                            <FormControl
-                            type="search"
-                            placeholder="Search"
-                            className="me-2"
-                            aria-label="Search"
-                            />
-                            <Button variant="outline-success">Search</Button>
-                        </Form>
+                        <SearchForm/>
                         <Nav>
                             {
                                 user !== null &&

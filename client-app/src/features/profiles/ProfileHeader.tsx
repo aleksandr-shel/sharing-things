@@ -31,7 +31,7 @@ export default function ProfileHeader({profile}:Props){
                 </span>
             
             {/* if current user is selected profile then no subscribe button */}
-            {user?.username !== profile.username &&
+            {!!user && user?.username !== profile.username &&
                 <Button onClick={handleFollowing} variant={profile.following ? 'danger' : 'primary'}>
                     {
                         updatingFollowing ?

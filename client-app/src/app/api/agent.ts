@@ -93,10 +93,16 @@ const Profiles = {
     getProfileVideos: (username: string)=> requests.get<Video[]>(`/profile/${username}/videos`)
 }
 
+const Search = {
+    list: (query:string)=> axios.get<Profile[] | Video[]>(`search?q=${query}`).then(responseBody),
+
+}
+
 const agent = {
     Videos,
     Account,
-    Profiles
+    Profiles,
+    Search
 }
 
 export default agent;

@@ -1,6 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
 import modalSlice from "./slices/modalSlice";
 import profileSlice from "./slices/profileSlice";
+import searchSlice from "./slices/searchSlice";
 import userSlice from "./slices/userSlice";
 import videoSlice from "./slices/videoSlice";
 
@@ -11,7 +12,8 @@ const store = configureStore(
             videoReducer: videoSlice.reducer,
             modalReducer: modalSlice.reducer,
             userReducer: userSlice.reducer,
-            profileReducer: profileSlice.reducer
+            profileReducer: profileSlice.reducer,
+            searchReducer: searchSlice.reducer
         }
     }
 )
