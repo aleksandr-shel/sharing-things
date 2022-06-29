@@ -22,6 +22,7 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
+appsettings.json
 public/Candle.mp4
 public/Red_Pastel.mp4
 public/Clouds.mp4

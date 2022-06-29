@@ -72,3 +72,6 @@ C:\Web Development Projects\sharing-things\Sharing-things-backend\Sharing-things
 C:\Web Development Projects\sharing-things\Sharing-things-backend\Sharing-things-backend\obj\Debug\net6.0\refint\Sharing-things-backend.dll
 C:\Web Development Projects\sharing-things\Sharing-things-backend\Sharing-things-backend\obj\Debug\net6.0\Sharing-things-backend.genruntimeconfig.cache
 C:\Web Development Projects\sharing-things\Sharing-things-backend\Sharing-things-backend\obj\Debug\net6.0\ref\Sharing-things-backend.dll
+C:\Web Development Projects\sharing-things\Sharing-things-backend\Sharing-things-backend\bin\Debug\net6.0\Sharing-things-backend.staticwebassets.runtime.json
+C:\Web Development Projects\sharing-things\Sharing-things-backend\Sharing-things-backend\bin\Debug\net6.0\Npgsql.dll
+C:\Web Development Projects\sharing-things\Sharing-things-backend\Sharing-things-backend\bin\Debug\net6.0\Npgsql.EntityFrameworkCore.PostgreSQL.dll
