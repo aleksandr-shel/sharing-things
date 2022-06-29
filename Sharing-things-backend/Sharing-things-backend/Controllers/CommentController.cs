@@ -37,5 +37,11 @@ namespace Sharing_things_backend.Controllers
             }
             return Ok();
         }
+
+        [HttpGet]
+        public async Task<IActionResult> GetVideosComments()
+        {
+            return Ok(await _dynamoDbService.GetAllVideosComments());
+        }
     }
 }

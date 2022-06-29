@@ -18,9 +18,10 @@ namespace Sharing_things_backend.Extensions
 
             //added dynamoDb
             services.AddSingleton<IAmazonDynamoDB>(_=> new AmazonDynamoDBClient());
-            services.AddSingleton<IDynamoDbService>(provider =>
-                new DynamoDbService(provider.GetRequiredService<IAmazonDynamoDB>())); ;
-            
+            services.AddScoped<IDynamoDbService>(provider =>
+                new DynamoDbService(provider.GetRequiredService<IAmazonDynamoDB>(),
+                    provider.GetRequiredService<DataContext>(), provider.GetRequiredService<IHttpContextAccessor>()));
+
             services.AddDbContext<DataContext>(opt =>
             {
                 opt.UseSqlServer(config.GetConnectionString("DefaultConnection"));
@@ -30,7 +31,11 @@ namespace Sharing_things_backend.Extensions
             {
                 opt.AddPolicy("CorsPolicy", policy =>
                 {
-                    policy.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin();
+                    policy
+                    .AllowAnyHeader()
+                    .AllowAnyMethod()
+                    .AllowCredentials()
+                    .WithOrigins("http://localhost:3000");
                 });
             });
 

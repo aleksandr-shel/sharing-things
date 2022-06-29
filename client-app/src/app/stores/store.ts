@@ -1,4 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
+import commentSlice from "./slices/commentSlice";
 import modalSlice from "./slices/modalSlice";
 import profileSlice from "./slices/profileSlice";
 import searchSlice from "./slices/searchSlice";
@@ -13,8 +14,12 @@ const store = configureStore(
             modalReducer: modalSlice.reducer,
             userReducer: userSlice.reducer,
             profileReducer: profileSlice.reducer,
-            searchReducer: searchSlice.reducer
-        }
+            searchReducer: searchSlice.reducer,
+            commentsReducer: commentSlice.reducer
+        },
+        middleware: (getDefaultMiddleware)=> getDefaultMiddleware({
+            serializableCheck: false
+        })
     }
 )
 

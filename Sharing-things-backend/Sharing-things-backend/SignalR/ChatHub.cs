@@ -19,6 +19,16 @@ namespace Sharing_things_backend.SignalR
                 .SendAsync("ReceiveComment", comment);
         }
 
+        public async Task DeleteComment(string videoId, string commentId)
+        {
+            var result = await _dynamoDbService.DeleteCommentInVideo(videoId, commentId);
+            if (result)
+            {
+                await Clients.Group(videoId)
+                    .SendAsync("DeleteComment", commentId);
+            }
+        }
+
         public override async Task OnConnectedAsync()
         {
             var httpContext = Context.GetHttpContext();
