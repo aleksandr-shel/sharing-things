@@ -104,6 +104,11 @@ namespace Sharing_things_backend.Services
             return true;
         }
 
+        public async Task DeleteVideoDynamoDb(string videoId)
+        {
+            await _context.DeleteAsync<VideoDynamoDbModel>(videoId);
+        }
+
 
         public async Task<List<Document>> GetAllVideosComments()
         {

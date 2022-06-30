@@ -34,42 +34,45 @@ export default function CommentsSection({videoId}:Props){
     return (
         <ListGroup className='mt-3 mb-5'>
             
-            <Formik
-                onSubmit={(values,{resetForm})=>{
-                    dispatch(addComment({body:values.body, videoId}))
-                    resetForm();
-                }}
-                initialValues={{body: ''}}
-                validationSchema={Yup.object({
-                    body: Yup.string().required()
-                })}
-            >
-                {({isSubmitting, isValid, handleSubmit})=>(
-                    <Form className='overflow-auto'>
-                        <Field name='body'>
-                            {(props: FieldProps)=>(
-                                <div style={{position:'relative'}}>
-                                    <textarea
-                                        placeholder='Enter your comment: (Enter to submit, SHIFT + Enter for new line)'
-                                        rows={4}
-                                        className='w-100'
-                                        {...props.field}
-                                        onKeyDownCapture={e => {
-                                            if (e.key === 'Enter' && e.shiftKey){
-                                                return;
-                                            }
-                                            if (e.key === 'Enter' && !e.shiftKey){
-                                                e.preventDefault();
-                                                isValid && handleSubmit();
-                                            }
-                                        }}
-                                    />
-                                </div>
-                            )}
-                        </Field>
-                    </Form>
-                )}
-            </Formik>
+            {
+                !!user &&
+                <Formik
+                    onSubmit={(values,{resetForm})=>{
+                        dispatch(addComment({body:values.body, videoId}))
+                        resetForm();
+                    }}
+                    initialValues={{body: ''}}
+                    validationSchema={Yup.object({
+                        body: Yup.string().required()
+                    })}
+                >
+                    {({isSubmitting, isValid, handleSubmit})=>(
+                        <Form className='overflow-auto'>
+                            <Field name='body'>
+                                {(props: FieldProps)=>(
+                                    <div style={{position:'relative'}}>
+                                        <textarea
+                                            placeholder='Enter your comment: (Enter to submit, SHIFT + Enter for new line)'
+                                            rows={4}
+                                            className='w-100'
+                                            {...props.field}
+                                            onKeyDownCapture={e => {
+                                                if (e.key === 'Enter' && e.shiftKey){
+                                                    return;
+                                                }
+                                                if (e.key === 'Enter' && !e.shiftKey){
+                                                    e.preventDefault();
+                                                    isValid && handleSubmit();
+                                                }
+                                            }}
+                                        />
+                                    </div>
+                                )}
+                            </Field>
+                        </Form>
+                    )}
+                </Formik>
+            }
             {comments.map(comment=>{
                 return(
                     <ListGroup.Item key={comment.id} className='position-relative'>

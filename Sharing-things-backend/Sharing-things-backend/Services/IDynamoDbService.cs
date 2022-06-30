@@ -10,5 +10,6 @@ namespace Sharing_things_backend.Services
         Task<Comment> AddComment(CommentDto commentDto);
         Task<bool> DeleteCommentInVideo(string videoId, string commentId);
         Task<List<Document>> GetAllVideosComments();
+        Task DeleteVideoDynamoDb(string videoId);
     }
 }

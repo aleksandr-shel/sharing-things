@@ -25,14 +25,16 @@ namespace Sharing_things_backend.Controllers
     {
         private readonly ILogger<VideoController> _logger;
         private readonly IMapper _mapper;
+        private readonly IDynamoDbService _dynamoDbService;
         private readonly DataContext _context;
         private readonly IS3BucketService _iS3BucketService;
 
         public VideoController(DataContext context, IS3BucketService iS3BucketService, ILogger<VideoController> logger,
-            IMapper mapper)
+            IMapper mapper, IDynamoDbService dynamoDbService)
         {
             _logger = logger;
             _mapper = mapper;
+            _dynamoDbService = dynamoDbService;
             _context = context;
             _iS3BucketService = iS3BucketService;
         }
@@ -89,6 +91,7 @@ namespace Sharing_things_backend.Controllers
             {
                 _context.Videos.Remove(video);
                 await _context.SaveChangesAsync();
+                await _dynamoDbService.DeleteVideoDynamoDb(video.Id.ToString());
                 return Ok();
             }
             return BadRequest();
