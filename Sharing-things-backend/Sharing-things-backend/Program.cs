@@ -56,7 +56,7 @@ app.UseXContentTypeOptions();
 app.UseReferrerPolicy(opt => opt.NoReferrer());
 app.UseXXssProtection(opt => opt.EnabledWithBlockMode());
 app.UseXfo(opt => opt.Deny());
-app.UseCspReportOnly(opt =>
+app.UseCsp(opt =>
     opt.BlockAllMixedContent()
     .StyleSources(s => s.Self().CustomSources("sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU="))
     .FontSources(s => s.Self())
