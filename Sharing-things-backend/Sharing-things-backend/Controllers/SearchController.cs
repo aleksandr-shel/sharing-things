@@ -31,7 +31,7 @@ namespace Sharing_things_backend.Controllers
         [HttpGet]
         public async Task<IActionResult> Search(string q)
         {
-
+            q = q.ToLower();
             _logger.LogInformation(q);
             string[] splited = q.Split(new [] {',',' '});
             for (int i = 0; i < splited.Length; i++)
@@ -45,17 +45,18 @@ namespace Sharing_things_backend.Controllers
             //.Where(x => splited.Any(y => x.Title.Contains(y))) throws an error
             var querySearch = _context.Videos
                 //.Where(x => splited.Any(y => x.Title.Contains(y)))
-                .Where(x => x.Title.Contains(q) || x.Title.Equals(q)
-                    || splited.Contains(x.Title) || x.Owner.DisplayName.Contains(q)
-                    || x.Owner.DisplayName.Contains(splited[0]) || x.Title.Contains(splited[0]))
+                .Where(x => x.Title.ToLower().Contains(q) || x.Title.ToLower().Equals(q)
+                    || splited.Contains(x.Title.ToLower()) || x.Owner.DisplayName.ToLower().Contains(q)
+                    || x.Owner.DisplayName.ToLower().Contains(splited[0]) || x.Title.ToLower().Contains(splited[0]))
                 .ProjectTo<VideoDto>(_mapper.ConfigurationProvider)
                 .Take(10)
                 .AsQueryable();
 
             var userQuerySearch = _context.Users
                 .ProjectTo<ProfileDto>(_mapper.ConfigurationProvider, new {currentUsername = User.FindFirstValue(ClaimTypes.Name) })
-                .Where(x => x.DisplayName.Contains(q) || x.DisplayName.Equals(q)
-                    || splited.Contains(x.DisplayName))
+                .Where(x => x.DisplayName.ToLower().Contains(q) || x.DisplayName.ToLower().Equals(q)
+                    || x.DisplayName.ToLower().Contains(splited[0])
+                    || splited.Contains(x.DisplayName.ToLower()))
                 .Take(3)
                 .AsQueryable();
 

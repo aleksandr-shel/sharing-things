@@ -154,3 +154,6 @@ C:\Web Development Projects\sharing-things\Sharing-things-backend\Test-Sharing-t
 C:\Web Development Projects\sharing-things\Sharing-things-backend\Test-Sharing-things\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll
 C:\Web Development Projects\sharing-things\Sharing-things-backend\Test-Sharing-things\bin\Debug\net6.0\Sharing-things-backend.dll
 C:\Web Development Projects\sharing-things\Sharing-things-backend\Test-Sharing-things\bin\Debug\net6.0\Sharing-things-backend.pdb
+C:\Web Development Projects\sharing-things\Sharing-things-backend\Test-Sharing-things\bin\Debug\net6.0\Sharing-things-backend.staticwebassets.runtime.json
+C:\Web Development Projects\sharing-things\Sharing-things-backend\Test-Sharing-things\bin\Debug\net6.0\Npgsql.dll
+C:\Web Development Projects\sharing-things\Sharing-things-backend\Test-Sharing-things\bin\Debug\net6.0\Npgsql.EntityFrameworkCore.PostgreSQL.dll

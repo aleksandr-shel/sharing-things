@@ -29,28 +29,28 @@
           }
         }
       },
-      "AWSSDK.Core/3.7.11.11": {
+      "AWSSDK.Core/3.7.12.3": {
         "runtime": {
           "lib/netcoreapp3.1/AWSSDK.Core.dll": {
             "assemblyVersion": "3.3.0.0",
-            "fileVersion": "3.7.11.11"
+            "fileVersion": "3.7.12.3"
           }
         }
       },
-      "AWSSDK.DynamoDBv2/3.7.3.43": {
+      "AWSSDK.DynamoDBv2/3.7.3.51": {
         "dependencies": {
-          "AWSSDK.Core": "3.7.11.11"
+          "AWSSDK.Core": "3.7.12.3"
         },
         "runtime": {
           "lib/netcoreapp3.1/AWSSDK.DynamoDBv2.dll": {
             "assemblyVersion": "3.3.0.0",
-            "fileVersion": "3.7.3.43"
+            "fileVersion": "3.7.3.51"
           }
         }
       },
       "AWSSDK.S3/3.7.9.11": {
         "dependencies": {
-          "AWSSDK.Core": "3.7.11.11"
+          "AWSSDK.Core": "3.7.12.3"
         },
         "runtime": {
           "lib/netcoreapp3.1/AWSSDK.S3.dll": {
@@ -767,6 +767,31 @@
           "lib/netstandard1.0/Newtonsoft.Json.dll": {
             "assemblyVersion": "9.0.0.0",
             "fileVersion": "9.0.1.19813"
+          }
+        }
+      },
+      "Npgsql/6.0.5": {
+        "dependencies": {
+          "System.Runtime.CompilerServices.Unsafe": "6.0.0"
+        },
+        "runtime": {
+          "lib/net6.0/Npgsql.dll": {
+            "assemblyVersion": "6.0.5.0",
+            "fileVersion": "6.0.5.0"
+          }
+        }
+      },
+      "Npgsql.EntityFrameworkCore.PostgreSQL/6.0.5": {
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "6.0.5",
+          "Microsoft.EntityFrameworkCore.Abstractions": "6.0.5",
+          "Microsoft.EntityFrameworkCore.Relational": "6.0.5",
+          "Npgsql": "6.0.5"
+        },
+        "runtime": {
+          "lib/net6.0/Npgsql.EntityFrameworkCore.PostgreSQL.dll": {
+            "assemblyVersion": "6.0.5.0",
+            "fileVersion": "6.0.5.0"
           }
         }
       },
@@ -1627,13 +1652,14 @@
       "xunit.runner.visualstudio/2.4.3": {},
       "Sharing-things-backend/1.0.0": {
         "dependencies": {
-          "AWSSDK.DynamoDBv2": "3.7.3.43",
+          "AWSSDK.DynamoDBv2": "3.7.3.51",
           "AWSSDK.S3": "3.7.9.11",
           "AutoMapper": "11.0.1",
           "FluentValidation.AspNetCore": "11.0.2",
           "Microsoft.AspNetCore.Authentication.JwtBearer": "6.0.5",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "6.0.5",
           "Microsoft.EntityFrameworkCore.SqlServer": "6.0.5",
+          "Npgsql.EntityFrameworkCore.PostgreSQL": "6.0.5",
           "Swashbuckle.AspNetCore": "6.3.1"
         },
         "runtime": {
@@ -1655,19 +1681,19 @@
       "path": "automapper/11.0.1",
       "hashPath": "automapper.11.0.1.nupkg.sha512"
     },
-    "AWSSDK.Core/3.7.11.11": {
+    "AWSSDK.Core/3.7.12.3": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-6yJ0ZIe92/LtDGn1npRSJw+J5N7grlPFucAcv9D6z6Cj9QSFRbh68WlL5vxTezWKA2IqgNhev9fpbIiHz9QzHA==",
-      "path": "awssdk.core/3.7.11.11",
-      "hashPath": "awssdk.core.3.7.11.11.nupkg.sha512"
+      "sha512": "sha512-l2P2Tf6FE4eDDAbt6wNMVcPfmJaURMo8n/IO/oWvFi56WdfrQmYur+/QNh4hsRt6DT6CnNbpLpGcMQNLUlOmOQ==",
+      "path": "awssdk.core/3.7.12.3",
+      "hashPath": "awssdk.core.3.7.12.3.nupkg.sha512"
     },
-    "AWSSDK.DynamoDBv2/3.7.3.43": {
+    "AWSSDK.DynamoDBv2/3.7.3.51": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-Y7tnmr66t/FlcoGLr+pIUZ9NFn5fPaxjDNjljN9wIWX0ReDCQKjkVRhzQhc3zAVCN+XkHxh7iYKNd/CyfdM8iQ==",
-      "path": "awssdk.dynamodbv2/3.7.3.43",
-      "hashPath": "awssdk.dynamodbv2.3.7.3.43.nupkg.sha512"
+      "sha512": "sha512-SjHpCRpqwdYtK+Ezdr+7JrdmEt9ZqCoaMQDY66eVOeHoUkHe372txf13m0FdVITABRp67aUBhe/Bf6FHWUT02w==",
+      "path": "awssdk.dynamodbv2/3.7.3.51",
+      "hashPath": "awssdk.dynamodbv2.3.7.3.51.nupkg.sha512"
     },
     "AWSSDK.S3/3.7.9.11": {
       "type": "package",
@@ -1997,6 +2023,20 @@
       "sha512": "sha512-U82mHQSKaIk+lpSVCbWYKNavmNH1i5xrExDEquU1i6I5pV6UMOqRnJRSlKO3cMPfcpp0RgDY+8jUXHdQ4IfXvw==",
       "path": "newtonsoft.json/9.0.1",
       "hashPath": "newtonsoft.json.9.0.1.nupkg.sha512"
+    },
+    "Npgsql/6.0.5": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-a11H5/b5yNTuFN0Ycjvb920oI6vQHadt6KhEMmcC7DfvsSHH8Z3wBam+CHmyWcfDxJJaxamcdBb8XA3BvqS4Kw==",
+      "path": "npgsql/6.0.5",
+      "hashPath": "npgsql.6.0.5.nupkg.sha512"
+    },
+    "Npgsql.EntityFrameworkCore.PostgreSQL/6.0.5": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-1eAaz5CwwZbATraqYyYsG2tMWZM1ydyLmQVpFGTzkUUKB/sAL5QWB0IfjSxOjiIDp5JY1WoFndkcaGMEcexVXg==",
+      "path": "npgsql.entityframeworkcore.postgresql/6.0.5",
+      "hashPath": "npgsql.entityframeworkcore.postgresql.6.0.5.nupkg.sha512"
     },
     "NuGet.Frameworks/5.0.0": {
       "type": "package",
