@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "mXdXKoPmJMiKryLnl8jTjMzyyJJwNtGLYNTle4Fw2O8Y5EdRKKEQ+2Kg9xrzPQ4iqxIMND/1g4O4dOGIrted2Q==",
+  "dgSpecHash": "BnITL8QwABIBgCUexL0prz0PmWJMGEXySx66WY4qqmkv1RV/joTmKj/hi91SDxefmjqIG6K89Ey1wnnFAw5MLg==",
   "success": true,
   "projectFilePath": "C:\\Web Development Projects\\sharing-things\\Sharing-things-backend\\Sharing-things-backend\\Sharing-things-backend.csproj",
   "expectedPackageFiles": [
@@ -50,6 +50,8 @@
     "C:\\Users\\msi123\\.nuget\\packages\\microsoft.win32.systemevents\\4.7.0\\microsoft.win32.systemevents.4.7.0.nupkg.sha512",
     "C:\\Users\\msi123\\.nuget\\packages\\npgsql\\6.0.5\\npgsql.6.0.5.nupkg.sha512",
     "C:\\Users\\msi123\\.nuget\\packages\\npgsql.entityframeworkcore.postgresql\\6.0.5\\npgsql.entityframeworkcore.postgresql.6.0.5.nupkg.sha512",
+    "C:\\Users\\msi123\\.nuget\\packages\\nwebsec.aspnetcore.core\\3.0.0\\nwebsec.aspnetcore.core.3.0.0.nupkg.sha512",
+    "C:\\Users\\msi123\\.nuget\\packages\\nwebsec.aspnetcore.middleware\\3.0.0\\nwebsec.aspnetcore.middleware.3.0.0.nupkg.sha512",
     "C:\\Users\\msi123\\.nuget\\packages\\swashbuckle.aspnetcore\\6.3.1\\swashbuckle.aspnetcore.6.3.1.nupkg.sha512",
     "C:\\Users\\msi123\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.3.1\\swashbuckle.aspnetcore.swagger.6.3.1.nupkg.sha512",
     "C:\\Users\\msi123\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.3.1\\swashbuckle.aspnetcore.swaggergen.6.3.1.nupkg.sha512",

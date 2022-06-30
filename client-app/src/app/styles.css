@@ -1,8 +1,8 @@
 :root{
     --width-video-item: 25em;
     --height-video-item: 14em;
-    --width-video-item-little: 14em;
-    --height-video-item-little: 8em;
+    --width-video-item-little: 20em;
+    --height-video-item-little: 11em;
 }
 
 body{

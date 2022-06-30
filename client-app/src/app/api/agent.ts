@@ -21,8 +21,7 @@ axios.interceptors.request.use(config=>{
 })
 
 axios.interceptors.response.use( async response =>{
-    await sleep(1000);
-
+    if (process.env.NODE_ENV === 'development') await sleep(1000);
     const pagination = response.headers['pagination'];
     if (pagination){
         response.data = new PaginatedResult(response.data, JSON.parse(pagination));
@@ -73,6 +72,7 @@ const Videos = {
             headers: {'Content-type':'multipart/form-data'}
         })
     },
+    deleteVideo: (id:string) => axios.delete(`/video/${id}`).then(response => response.status),
     favoriteList: () => requests.get<Video[]>('/favorite/list'),
     toggleFavorite: (id: string)=> axios.post(`/favorite/${id}`, {}),
     isFavorite: (id:string)=>requests.get<boolean>(`/favorite/${id}`),

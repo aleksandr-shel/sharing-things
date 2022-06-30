@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "O3f4lJeY4dZk+SJAn7q0KPqeYqrMuI8H9+CmubJR2Ok=",
+  "Hash": "KV6M99510gjH9Cj0fEMztB/f8eD6gYUp+ZGb6hJoLHk=",
   "Source": "Sharing-things-backend",
   "BasePath": "_content/Sharing-things-backend",
   "Mode": "Default",
@@ -238,12 +238,12 @@
       "OriginalItemSpec": "wwwroot\\robots.txt"
     },
     {
-      "Identity": "C:\\Web Development Projects\\sharing-things\\Sharing-things-backend\\Sharing-things-backend\\wwwroot\\static\\css\\main.ebe62fa1.css",
+      "Identity": "C:\\Web Development Projects\\sharing-things\\Sharing-things-backend\\Sharing-things-backend\\wwwroot\\static\\css\\main.b4798146.css",
       "SourceId": "Sharing-things-backend",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Web Development Projects\\sharing-things\\Sharing-things-backend\\Sharing-things-backend\\wwwroot\\",
       "BasePath": "_content/Sharing-things-backend",
-      "RelativePath": "static/css/main.ebe62fa1.css",
+      "RelativePath": "static/css/main.b4798146.css",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -252,15 +252,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\static\\css\\main.ebe62fa1.css"
+      "OriginalItemSpec": "wwwroot\\static\\css\\main.b4798146.css"
     },
     {
-      "Identity": "C:\\Web Development Projects\\sharing-things\\Sharing-things-backend\\Sharing-things-backend\\wwwroot\\static\\css\\main.ebe62fa1.css.map",
+      "Identity": "C:\\Web Development Projects\\sharing-things\\Sharing-things-backend\\Sharing-things-backend\\wwwroot\\static\\css\\main.b4798146.css.map",
       "SourceId": "Sharing-things-backend",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Web Development Projects\\sharing-things\\Sharing-things-backend\\Sharing-things-backend\\wwwroot\\",
       "BasePath": "_content/Sharing-things-backend",
-      "RelativePath": "static/css/main.ebe62fa1.css.map",
+      "RelativePath": "static/css/main.b4798146.css.map",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -269,15 +269,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\static\\css\\main.ebe62fa1.css.map"
+      "OriginalItemSpec": "wwwroot\\static\\css\\main.b4798146.css.map"
     },
     {
-      "Identity": "C:\\Web Development Projects\\sharing-things\\Sharing-things-backend\\Sharing-things-backend\\wwwroot\\static\\js\\main.590c729d.js",
+      "Identity": "C:\\Web Development Projects\\sharing-things\\Sharing-things-backend\\Sharing-things-backend\\wwwroot\\static\\js\\main.e5a24ad8.js",
       "SourceId": "Sharing-things-backend",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Web Development Projects\\sharing-things\\Sharing-things-backend\\Sharing-things-backend\\wwwroot\\",
       "BasePath": "_content/Sharing-things-backend",
-      "RelativePath": "static/js/main.590c729d.js",
+      "RelativePath": "static/js/main.e5a24ad8.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -286,15 +286,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\static\\js\\main.590c729d.js"
+      "OriginalItemSpec": "wwwroot\\static\\js\\main.e5a24ad8.js"
     },
     {
-      "Identity": "C:\\Web Development Projects\\sharing-things\\Sharing-things-backend\\Sharing-things-backend\\wwwroot\\static\\js\\main.590c729d.js.LICENSE.txt",
+      "Identity": "C:\\Web Development Projects\\sharing-things\\Sharing-things-backend\\Sharing-things-backend\\wwwroot\\static\\js\\main.e5a24ad8.js.LICENSE.txt",
       "SourceId": "Sharing-things-backend",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Web Development Projects\\sharing-things\\Sharing-things-backend\\Sharing-things-backend\\wwwroot\\",
       "BasePath": "_content/Sharing-things-backend",
-      "RelativePath": "static/js/main.590c729d.js.LICENSE.txt",
+      "RelativePath": "static/js/main.e5a24ad8.js.LICENSE.txt",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -303,15 +303,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\static\\js\\main.590c729d.js.LICENSE.txt"
+      "OriginalItemSpec": "wwwroot\\static\\js\\main.e5a24ad8.js.LICENSE.txt"
     },
     {
-      "Identity": "C:\\Web Development Projects\\sharing-things\\Sharing-things-backend\\Sharing-things-backend\\wwwroot\\static\\js\\main.590c729d.js.map",
+      "Identity": "C:\\Web Development Projects\\sharing-things\\Sharing-things-backend\\Sharing-things-backend\\wwwroot\\static\\js\\main.e5a24ad8.js.map",
       "SourceId": "Sharing-things-backend",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Web Development Projects\\sharing-things\\Sharing-things-backend\\Sharing-things-backend\\wwwroot\\",
       "BasePath": "_content/Sharing-things-backend",
-      "RelativePath": "static/js/main.590c729d.js.map",
+      "RelativePath": "static/js/main.e5a24ad8.js.map",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -320,7 +320,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\static\\js\\main.590c729d.js.map"
+      "OriginalItemSpec": "wwwroot\\static\\js\\main.e5a24ad8.js.map"
     }
   ]
 }

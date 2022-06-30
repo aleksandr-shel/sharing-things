@@ -54,6 +54,14 @@ export const postVideo = (title: string, file: File):ThunkAction<void, RootState
     }
 }
 
+export const deleteVideo = (id:string):ThunkAction<void, RootState, unknown, AnyAction>=>{
+    return async(dispatch)=>{
+        const status = await agent.Videos.deleteVideo(id)
+        if (status === 200){
+            dispatch(videoActions.deleteVideo(id))
+        }
+    }
+}
 
 export const fetchFavoriteVideosList = ():ThunkAction<void, RootState, unknown, AnyAction> =>{
     return async (dispatch)=>{

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import ReactPlayer from 'react-player';
-import { useParams } from 'react-router-dom';
-import { fetchVideo, toggleFavorite } from '../../../app/stores/actions/videoActions';
+import { useNavigate, useParams } from 'react-router-dom';
+import { deleteVideo, fetchVideo, toggleFavorite } from '../../../app/stores/actions/videoActions';
 import { useAppDispatch, useAppSelector } from '../../../app/stores/redux-hooks';
 import {AiFillLike, AiOutlineLike} from 'react-icons/ai'
 import { Button } from 'react-bootstrap';
@@ -16,6 +16,7 @@ export default function VideoSection(){
     const {user} = useAppSelector(state => state.userReducer);
     const dispatch = useAppDispatch();
     const [favorite, setFavorite] = useState(false);
+    const navigate = useNavigate();
 
     useEffect(()=>{
         if (!selectedVideo && id){
@@ -44,11 +45,24 @@ export default function VideoSection(){
             setFavorite(!favorite)
         }
     }
+
+    function deleteBtnHandle(id:string){
+        dispatch(deleteVideo(id))
+        navigate('/')
+    }
     
     return (
         <div className='mt-3'>
             <ReactPlayer width={'100%'} height={'100%'} controls url={selectedVideo?.videoUrl}/>
-            <h2>{selectedVideo?.title}</h2>
+            <div className='d-flex justify-content-between'>
+                <h2>{selectedVideo?.title}</h2>
+                {
+                    !!user && user.username === selectedVideo?.owner.username &&
+                    <Button variant='danger' onClick={()=>deleteBtnHandle(selectedVideo.id)}>
+                        Delete
+                    </Button>
+                }
+            </div>
             <div className='w-100'>
                 {
                     user !== null &&

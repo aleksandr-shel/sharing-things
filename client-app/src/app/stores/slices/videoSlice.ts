@@ -54,6 +54,10 @@ const videoSlice = createSlice({
         addVideo: (state, action: PayloadAction<Video>)=>{
             state.videos.push(action.payload);
         },
+        deleteVideo: (state, action: PayloadAction<string>)=>{
+            state.videos = state.videos.filter(video => video.id !== action.payload)
+            state.selectedVideo = null;
+        },
         setDownloadLoading: (state, action: PayloadAction<boolean>)=>{
             state.downloadVideoLoading = action.payload;
         },

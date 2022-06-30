@@ -65,7 +65,7 @@ export default function Layout(){
     ]
     const Grid = styled.div`
         display:grid;
-        grid-template-columns: ${isExpanded ? '2fr' : '1fr'} 15fr;
+        grid-template-columns: ${isExpanded ? '2fr' : '50px'} 15fr;
     `
     return (
         <>
@@ -125,8 +125,8 @@ export default function Layout(){
                                             </>
                                         ):(
                                             <div className='my-2 d-flex justify-content-center flex-column align-items-center'>
-                                                {link.icon(30)}
-                                                <span style={{fontSize:'0.75em'}}>{link.name}</span>
+                                                {link.icon(20)}
+                                                {/* <span style={{fontSize:'0.75em'}}>{link.name}</span> */}
                                             </div>
                                         )}
                                         
@@ -142,8 +142,8 @@ export default function Layout(){
                                             </>
                                         ):(
                                             <div className='my-2 d-flex justify-content-center flex-column align-items-center'>
-                                                {link.icon(30)}
-                                                <span style={{fontSize:'0.75em'}}>{link.name}</span>
+                                                {link.icon(20)}
+                                                {/* <span style={{fontSize:'0.75em'}}>{link.name}</span> */}
                                             </div>
                                         )}
                                         

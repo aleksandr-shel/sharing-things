@@ -46,7 +46,7 @@ export default function AddVideoForm(){
     }
 
     return(
-        <div>
+        <div className='my-2'>
             <Row>
                 <Col sm={6}>
                     <Form className='w-50 mx-auto'>

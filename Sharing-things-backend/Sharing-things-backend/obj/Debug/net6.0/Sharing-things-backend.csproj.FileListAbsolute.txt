@@ -75,3 +75,5 @@ C:\Web Development Projects\sharing-things\Sharing-things-backend\Sharing-things
 C:\Web Development Projects\sharing-things\Sharing-things-backend\Sharing-things-backend\bin\Debug\net6.0\Sharing-things-backend.staticwebassets.runtime.json
 C:\Web Development Projects\sharing-things\Sharing-things-backend\Sharing-things-backend\bin\Debug\net6.0\Npgsql.dll
 C:\Web Development Projects\sharing-things\Sharing-things-backend\Sharing-things-backend\bin\Debug\net6.0\Npgsql.EntityFrameworkCore.PostgreSQL.dll
+C:\Web Development Projects\sharing-things\Sharing-things-backend\Sharing-things-backend\bin\Debug\net6.0\NWebsec.AspNetCore.Core.dll
+C:\Web Development Projects\sharing-things\Sharing-things-backend\Sharing-things-backend\bin\Debug\net6.0\NWebsec.AspNetCore.Middleware.dll
