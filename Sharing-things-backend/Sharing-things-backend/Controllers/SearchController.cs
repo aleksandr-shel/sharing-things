@@ -59,7 +59,7 @@ namespace Sharing_things_backend.Controllers
                     || splited.Contains(x.DisplayName.ToLower()))
                 .Take(3)
                 .AsQueryable();
-
+            //dsadasd
             List<VideoDto> videosList = await querySearch.ToListAsync();
             List<ProfileDto> userList = await userQuerySearch.ToListAsync();
 
