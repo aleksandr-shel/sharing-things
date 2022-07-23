@@ -14,7 +14,7 @@ import { setPageNumber, setVideos } from '../stores/slices/videoSlice';
 import FollowingListOnSidebar from './FollowingListOnSidebar';
 import {setFollowingList} from '../stores/slices/profileSlice';
 import SearchForm from '../../features/search/SearchForm';
-
+import {Box, Drawer} from '@mui/material';
 
 export default function Layout(){
 
@@ -23,6 +23,7 @@ export default function Layout(){
     const navigate = useNavigate();
     const {user} = useAppSelector(state=> state.userReducer);
     
+    const [drawerOpen, setDrawerOpen] = useState(false);
 
     function toggleHamburgerButton(){
         setExpanded(!isExpanded)
@@ -72,7 +73,10 @@ export default function Layout(){
             <div className='position-sticky top-0' style={{zIndex:'1000'}}>
                 <Navbar bg="light" expand="lg">
                     <Container fluid>
-                        <Button variant='light' onClick={toggleHamburgerButton}>
+                        {/* <Button variant='light' onClick={toggleHamburgerButton}>
+                            <AiOutlineMenu/>
+                        </Button> */}
+                        <Button variant='light' style={{borderRadius:'40%'}} onClick={()=>setDrawerOpen(true)}>
                             <AiOutlineMenu/>
                         </Button>
                         <Navbar.Brand as={Link} to='/' className='ms-1'>
@@ -109,8 +113,16 @@ export default function Layout(){
                     </Container>
                 </Navbar>
             </div>
-            <Grid>
-                <div className='sidebar'>
+            <Drawer
+                open={drawerOpen}
+                onClose={()=>setDrawerOpen(false)}
+            >
+                <Box
+                    sx={{width: 'auto'}}
+                    role="presentation"
+                    // onClick={()=>setDrawerOpen(false)}
+                    // onKeyDown={()=>setDrawerOpen(false)}
+                >
                     <Nav className="d-flex flex-column">
                         {links.map((link,index)=>{
 
@@ -154,11 +166,11 @@ export default function Layout(){
                         })}
                         <FollowingListOnSidebar user={user} isExpanded={isExpanded}/>
                     </Nav>
-                </div>
-                <div>
-                    <Outlet/>
-                </div>
-            </Grid>
+                </Box>
+            </Drawer>
+            <Container fluid>
+                <Outlet/>
+            </Container>
         </>
     )
 }

@@ -29,6 +29,7 @@ namespace Sharing_things_backend.Controllers
             var list = await _context.UserFavorites
                 .Where(x => x.User.UserName == User.FindFirstValue(ClaimTypes.Name))
                 .Select(x => x.Video)
+                .OrderBy(x => x.AddedAt)
                 .ProjectTo<VideoDto>(_mapper.ConfigurationProvider)
                 .ToListAsync();
             return Ok(list);
