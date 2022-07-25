@@ -20,7 +20,7 @@ export default function MainVideoItem({video}:Props){
     }
 
     return(
-        <Card className='position-relative main-video-item mx-1 my-1'>
+        <Card className='position-relative main-video-item'>
             {/* <Card.Img variant="bottom" className='video-item-img' src={`pic${Math.ceil(Math.random() * 5)}.jpg`}/> */}
             <div>
                 <video width={'100%'} preload='metadata'>

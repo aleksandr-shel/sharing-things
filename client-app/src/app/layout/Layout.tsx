@@ -1,7 +1,6 @@
-import React, {useState } from 'react';
+import React, {useEffect} from 'react';
 import { Navbar, Container, Nav, NavDropdown, Button, Image} from 'react-bootstrap';
-import { Outlet, useNavigate } from 'react-router-dom';
-import styled from 'styled-components';
+import { Outlet, useLocation, useNavigate } from 'react-router-dom';
 import {AiOutlineMenu, AiTwotoneHome, AiFillLike, AiOutlineGroup, AiOutlineVideoCameraAdd} from 'react-icons/ai';
 import {Link} from 'react-router-dom';
 import { openModal } from '../stores/slices/modalSlice';
@@ -11,23 +10,21 @@ import Register from '../../features/users/Register';
 import { logout } from '../stores/slices/userSlice';
 import { fetchVideos } from '../stores/actions/videoActions';
 import { setPageNumber, setVideos } from '../stores/slices/videoSlice';
-import FollowingListOnSidebar from './FollowingListOnSidebar';
 import {setFollowingList} from '../stores/slices/profileSlice';
 import SearchForm from '../../features/search/SearchForm';
-import {Box, Drawer} from '@mui/material';
+import SideBarMenu from './SideBarMenu';
+import {setExpanded, setDrawer} from '../stores/slices/sidebarSlice';
+import SidebarDrawerMenu from './SidebarDrawerMenu';
 
 export default function Layout(){
 
-    const [isExpanded, setExpanded] = useState<boolean>(true);
+    // const [isExpanded, setExpanded] = useState<boolean>(true);
     const dispatch = useAppDispatch();
     const navigate = useNavigate();
     const {user} = useAppSelector(state=> state.userReducer);
-    
-    const [drawerOpen, setDrawerOpen] = useState(false);
+    const {isDrawer, isExpanded} = useAppSelector(state => state.sidebarReducer);
 
-    function toggleHamburgerButton(){
-        setExpanded(!isExpanded)
-    }
+    const location = useLocation();
 
     function logoutHandler(){
         navigate('/')
@@ -38,7 +35,32 @@ export default function Layout(){
         dispatch(fetchVideos())
     }
 
-    const links = [
+
+    //sidebar handler
+
+    const drawerPathnames = [
+        "/videos/"
+    ]
+
+    useEffect(()=>{
+        console.log(location.pathname)
+        
+        if (drawerPathnames.some(x=>{
+            return location.pathname.includes(x);
+        })){
+            dispatch(setDrawer(true))
+            dispatch(setExpanded(false))
+        } else {
+            dispatch(setDrawer(false))
+        }
+    },[location])
+
+    function handleSidebarChange(){
+        dispatch(setExpanded(!isExpanded));
+    }
+
+    //sidebar links
+    const links : any = [
         {
             name: 'Home',
             link: '/',
@@ -64,23 +86,16 @@ export default function Layout(){
         //     requiredUser: true,
         // },
     ]
-    const Grid = styled.div`
-        display:grid;
-        grid-template-columns: ${isExpanded ? '2fr' : '50px'} 15fr;
-    `
     return (
         <>
             <div className='position-sticky top-0' style={{zIndex:'1000'}}>
                 <Navbar bg="light" expand="lg">
                     <Container fluid>
-                        {/* <Button variant='light' onClick={toggleHamburgerButton}>
-                            <AiOutlineMenu/>
-                        </Button> */}
-                        <Button variant='light' style={{borderRadius:'40%'}} onClick={()=>setDrawerOpen(true)}>
+                        <Button variant='light' className='d-flex justify-content-center align-items-center' style={{borderRadius:'50%', width:'2.5em',height:'2.5em'}} onClick={handleSidebarChange}>
                             <AiOutlineMenu/>
                         </Button>
                         <Navbar.Brand as={Link} to='/' className='ms-1'>
-                            <Image src='./logo192.png' className='img-thumbnail' style={{height:'30px'}}/>
+                            <Image src='./sharing-things.png' className='img-thumbnail' style={{height:'40px', border: '0'}}/>
                             {' '}
                             Sharing things
                         </Navbar.Brand>
@@ -113,64 +128,25 @@ export default function Layout(){
                     </Container>
                 </Navbar>
             </div>
-            <Drawer
-                open={drawerOpen}
-                onClose={()=>setDrawerOpen(false)}
-            >
-                <Box
-                    sx={{width: 'auto'}}
-                    role="presentation"
-                    // onClick={()=>setDrawerOpen(false)}
-                    // onKeyDown={()=>setDrawerOpen(false)}
-                >
-                    <Nav className="d-flex flex-column">
-                        {links.map((link,index)=>{
-
-                            if (!link.requiredUser){
-                                return (
-                                    <Nav.Link key={index} as={Link} to={`${link.link}`}>
-                                        {isExpanded ? 
-                                        (
-                                            <>
-                                                {link.icon(25)}
-                                                <span className='ms-2'>{link.name}</span>
-                                            </>
-                                        ):(
-                                            <div className='my-2 d-flex justify-content-center flex-column align-items-center'>
-                                                {link.icon(20)}
-                                                {/* <span style={{fontSize:'0.75em'}}>{link.name}</span> */}
-                                            </div>
-                                        )}
-                                        
-                                    </Nav.Link>)
-                            } else if (user !== null) {
-                                return (
-                                    <Nav.Link key={index} as={Link} to={`${link.link}`}>
-                                        {isExpanded ? 
-                                        (
-                                            <>
-                                                {link.icon(25)}
-                                                <span className='ms-2'>{link.name}</span>
-                                            </>
-                                        ):(
-                                            <div className='my-2 d-flex justify-content-center flex-column align-items-center'>
-                                                {link.icon(20)}
-                                                {/* <span style={{fontSize:'0.75em'}}>{link.name}</span> */}
-                                            </div>
-                                        )}
-                                        
-                                    </Nav.Link>)
-                            } else {
-                                return null;
-                            }
-                        })}
-                        <FollowingListOnSidebar user={user} isExpanded={isExpanded}/>
-                    </Nav>
-                </Box>
-            </Drawer>
-            <Container fluid>
-                <Outlet/>
-            </Container>
+            {
+                isDrawer &&
+                <SidebarDrawerMenu links={links} user={user} isExpanded={isExpanded}/>
+            }
+            {
+                isDrawer ?
+                <Container fluid>
+                    <Outlet/>
+                </Container>
+                :
+                <div className='d-flex'>
+                    <div>
+                        <SideBarMenu links={links} user={user} isExpanded={isExpanded}/>
+                    </div>
+                    <Container fluid>
+                        <Outlet/>
+                    </Container>
+                </div>
+            }
         </>
     )
 }

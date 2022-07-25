@@ -13,7 +13,7 @@ export default function MovieDetails(){
     return (
         <Container fluid>
             <Row>
-                <Col sm={10}>
+                <Col sm={9}>
                     <VideoSection/>
                     <CommentsSection videoId={id}/>
                 </Col>

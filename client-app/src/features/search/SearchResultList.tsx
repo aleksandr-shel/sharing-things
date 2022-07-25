@@ -42,11 +42,12 @@ export default function SearchResultList(){
     if (list.length === 0) return <div></div>
 
     return(
-        <ListGroup className='w-75 mx-3 my-2'>
+        <ListGroup className='w-100 mx-1 my-2'>
             {
                 list.map(item =>{
                     if (instanceOfProfile(item)){
                         return (<ListGroup.Item
+                                    key={item.username}
                                     as={Link} to={`/profiles/${item.username}`}
                                     onClick={()=>handleClickProfile(item)}
                                     >

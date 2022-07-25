@@ -3,6 +3,8 @@
     --height-video-item: 16em;
     --width-video-item-little: 20em;
     --height-video-item-little: 11em;
+    --min-width-video-item:20em;
+    --min-height-video-item:11em;
 }
 
 body{
@@ -33,22 +35,15 @@ html {
 .main-video-item:hover{
     transform: scale(1.02);
 }
+
+.main-video-item{
+    flex-basis: 24%;
+}
+
 .video-item-body{
     /* display:none; */
     display: flex;
 }
-.main-video-item{
-    /* width: 18em;
-    height: 10em; */
-    width: var(--width-video-item);
-    height: var(--height-video-item);
-}
-.video-item-img{
-    width: var(--width-video-item);
-    height: var(--height-video-item);
-    object-fit:cover;
-}
-
 
 /* sticky !important */
 .sidebar{
@@ -58,14 +53,22 @@ html {
     overflow-y: auto;
 }
 
+
+@media only screen and (max-width: 1980px) {
+    .main-video-item{
+        flex-basis: 33%;
+    }
+}
+
 /* change size of video-card and image when window is less than 1000px wide */
 @media only screen and (max-width: 1000px) {
-    .video-item-img{
-        width: var(--width-video-item-little);
-        height: var(--height-video-item-little);
-    }
     .main-video-item{
-        width: var(--width-video-item-little);
-        height: var(--height-video-item-little);
+        flex-basis: 49%;
+    }
+}
+
+@media only screen and (max-width: 650px) {
+    .main-video-item{
+        flex-basis: 100%;
     }
 }

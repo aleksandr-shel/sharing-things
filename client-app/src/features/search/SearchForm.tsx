@@ -3,6 +3,7 @@ import {Form, FormControl, Button} from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import { search } from '../../app/stores/actions/searchActions';
 import { useAppDispatch } from '../../app/stores/redux-hooks';
+import SearchIcon from '@mui/icons-material/Search';
 
 export default function SearchForm(){
 
@@ -27,7 +28,9 @@ export default function SearchForm(){
                 value={queryString}
                 onChange={(e)=>setQueryString(e.target.value)}
             />
-            <Button type='submit' variant="outline-success">Search</Button>
+            <Button type='submit' variant="outline-success">
+                <SearchIcon/>
+            </Button>
         </Form>
     )
 }

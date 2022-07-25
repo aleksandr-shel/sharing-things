@@ -1,12 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "BnITL8QwABIBgCUexL0prz0PmWJMGEXySx66WY4qqmkv1RV/joTmKj/hi91SDxefmjqIG6K89Ey1wnnFAw5MLg==",
+  "dgSpecHash": "hFiQKVpNa24IaiJrfCzCve8rfP80MmnSdhS81mJOJYLEvSqykjYPx8XDXr+YcdF8dnDPAs2YeUeM6b+SiKlK6A==",
   "success": true,
   "projectFilePath": "C:\\Web Development Projects\\sharing-things\\Sharing-things-backend\\Sharing-things-backend\\Sharing-things-backend.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\msi123\\.nuget\\packages\\automapper\\11.0.1\\automapper.11.0.1.nupkg.sha512",
     "C:\\Users\\msi123\\.nuget\\packages\\awssdk.core\\3.7.12.3\\awssdk.core.3.7.12.3.nupkg.sha512",
     "C:\\Users\\msi123\\.nuget\\packages\\awssdk.dynamodbv2\\3.7.3.51\\awssdk.dynamodbv2.3.7.3.51.nupkg.sha512",
+    "C:\\Users\\msi123\\.nuget\\packages\\awssdk.extensions.netcore.setup\\3.7.2\\awssdk.extensions.netcore.setup.3.7.2.nupkg.sha512",
     "C:\\Users\\msi123\\.nuget\\packages\\awssdk.s3\\3.7.9.11\\awssdk.s3.3.7.9.11.nupkg.sha512",
     "C:\\Users\\msi123\\.nuget\\packages\\fluentvalidation\\11.0.2\\fluentvalidation.11.0.2.nupkg.sha512",
     "C:\\Users\\msi123\\.nuget\\packages\\fluentvalidation.aspnetcore\\11.0.2\\fluentvalidation.aspnetcore.11.0.2.nupkg.sha512",

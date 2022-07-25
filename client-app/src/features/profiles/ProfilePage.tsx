@@ -30,7 +30,7 @@ export default function ProfilePage(){
     if (selectedProfile === null || loadingProfile) return <LoadingComponent content='Loading profile...'/>;
 
     return(
-        <Container className='mt-3'>
+        <Container fluid className='mt-3'>
             <ProfileHeader profile={selectedProfile}/>
             <ProfileContent loading={loadingProfileVideos} videos={profileVideos}/>
         </Container>

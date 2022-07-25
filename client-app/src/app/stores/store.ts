@@ -3,6 +3,7 @@ import commentSlice from "./slices/commentSlice";
 import modalSlice from "./slices/modalSlice";
 import profileSlice from "./slices/profileSlice";
 import searchSlice from "./slices/searchSlice";
+import sidebarSlice from "./slices/sidebarSlice";
 import userSlice from "./slices/userSlice";
 import videoSlice from "./slices/videoSlice";
 
@@ -15,7 +16,8 @@ const store = configureStore(
             userReducer: userSlice.reducer,
             profileReducer: profileSlice.reducer,
             searchReducer: searchSlice.reducer,
-            commentsReducer: commentSlice.reducer
+            commentsReducer: commentSlice.reducer,
+            sidebarReducer: sidebarSlice.reducer
         },
         middleware: (getDefaultMiddleware)=> getDefaultMiddleware({
             serializableCheck: false

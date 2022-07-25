@@ -33,7 +33,7 @@ export default function Main(){
                     hasMore={!loading && !!pagination && pagination.currentPage < pagination.totalPages}
                     initialLoad={false}
                 >
-                <Container className='d-flex flex-wrap my-3' fluid>
+                <Container className='d-flex flex-wrap my-3 w-100' fluid>
                     {
                         videos.map((video)=>(
                             <MainVideoItem key={video.id} video={video}/>

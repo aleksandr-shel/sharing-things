@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import {Routes, Route} from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
+import NotFound from '../features/errors/NotFound';
 import ProfilePage from '../features/profiles/ProfilePage';
 import SearchResultList from '../features/search/SearchResultList';
 import FavoriteList from '../features/videos/Favorite/FavoriteList';
@@ -31,6 +32,7 @@ function App() {
       <ModalContainer/>
       <Routes>
         <Route path='/' element={<Layout/>}>
+          <Route path='*' element={<NotFound />} />
           <Route index element={<Main/>}/>
           <Route path='/videos/:id' element={<MovieDetails/>}/>
           <Route path='share-video' element={<AddVideoForm/>}/>

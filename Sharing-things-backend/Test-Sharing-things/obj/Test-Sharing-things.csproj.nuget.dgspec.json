@@ -49,11 +49,11 @@
           "dependencies": {
             "AWSSDK.DynamoDBv2": {
               "target": "Package",
-              "version": "[3.7.3.51, )"
+              "version": "[3.7.3.60, )"
             },
             "AWSSDK.S3": {
               "target": "Package",
-              "version": "[3.7.9.11, )"
+              "version": "[3.7.9.30, )"
             },
             "AutoMapper": {
               "target": "Package",
@@ -61,25 +61,25 @@
             },
             "FluentValidation.AspNetCore": {
               "target": "Package",
-              "version": "[11.0.2, )"
+              "version": "[11.1.2, )"
             },
             "Microsoft.AspNetCore.Authentication.JwtBearer": {
               "target": "Package",
-              "version": "[6.0.5, )"
+              "version": "[6.0.7, )"
             },
             "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[6.0.5, )"
+              "version": "[6.0.7, )"
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
-              "version": "[6.0.5, )"
+              "version": "[6.0.7, )"
             },
             "Microsoft.EntityFrameworkCore.Tools": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[6.0.5, )"
+              "version": "[6.0.7, )"
             },
             "NWebsec.AspNetCore.Middleware": {
               "target": "Package",
@@ -91,7 +91,7 @@
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
-              "version": "[6.3.1, )"
+              "version": "[6.4.0, )"
             }
           },
           "imports": [
