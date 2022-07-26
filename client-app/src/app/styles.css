@@ -56,7 +56,7 @@ html {
 
 @media only screen and (max-width: 1980px) {
     .main-video-item{
-        flex-basis: 33%;
+        flex-basis: 32%;
     }
 }
 
