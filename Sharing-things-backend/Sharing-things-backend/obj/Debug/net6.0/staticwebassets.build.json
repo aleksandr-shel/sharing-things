@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "8fZq+qGsI9KCyBfyq/5AGTN+wFtFhB0L79tsbeL1iSk=",
+  "Hash": "/sCp33emsEmflRbsurLIoSW3T5/H5KAWC39MTPdCYxM=",
   "Source": "Sharing-things-backend",
   "BasePath": "_content/Sharing-things-backend",
   "Mode": "Default",
@@ -10,17 +10,17 @@
     {
       "Name": "Sharing-things-backend\\wwwroot",
       "Source": "Sharing-things-backend",
-      "ContentRoot": "C:\\Web Development Projects\\sharing-things\\Sharing-things-backend\\Sharing-things-backend\\wwwroot\\",
+      "ContentRoot": "C:\\Web Development\\sharing-things\\Sharing-things-backend\\Sharing-things-backend\\wwwroot\\",
       "BasePath": "_content/Sharing-things-backend",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "C:\\Web Development Projects\\sharing-things\\Sharing-things-backend\\Sharing-things-backend\\wwwroot\\asset-manifest.json",
+      "Identity": "C:\\Web Development\\sharing-things\\Sharing-things-backend\\Sharing-things-backend\\wwwroot\\asset-manifest.json",
       "SourceId": "Sharing-things-backend",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Web Development Projects\\sharing-things\\Sharing-things-backend\\Sharing-things-backend\\wwwroot\\",
+      "ContentRoot": "C:\\Web Development\\sharing-things\\Sharing-things-backend\\Sharing-things-backend\\wwwroot\\",
       "BasePath": "_content/Sharing-things-backend",
       "RelativePath": "asset-manifest.json",
       "AssetKind": "All",
@@ -34,10 +34,10 @@
       "OriginalItemSpec": "wwwroot\\asset-manifest.json"
     },
     {
-      "Identity": "C:\\Web Development Projects\\sharing-things\\Sharing-things-backend\\Sharing-things-backend\\wwwroot\\favicon.ico",
+      "Identity": "C:\\Web Development\\sharing-things\\Sharing-things-backend\\Sharing-things-backend\\wwwroot\\favicon.ico",
       "SourceId": "Sharing-things-backend",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Web Development Projects\\sharing-things\\Sharing-things-backend\\Sharing-things-backend\\wwwroot\\",
+      "ContentRoot": "C:\\Web Development\\sharing-things\\Sharing-things-backend\\Sharing-things-backend\\wwwroot\\",
       "BasePath": "_content/Sharing-things-backend",
       "RelativePath": "favicon.ico",
       "AssetKind": "All",
@@ -51,10 +51,10 @@
       "OriginalItemSpec": "wwwroot\\favicon.ico"
     },
     {
-      "Identity": "C:\\Web Development Projects\\sharing-things\\Sharing-things-backend\\Sharing-things-backend\\wwwroot\\index.html",
+      "Identity": "C:\\Web Development\\sharing-things\\Sharing-things-backend\\Sharing-things-backend\\wwwroot\\index.html",
       "SourceId": "Sharing-things-backend",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Web Development Projects\\sharing-things\\Sharing-things-backend\\Sharing-things-backend\\wwwroot\\",
+      "ContentRoot": "C:\\Web Development\\sharing-things\\Sharing-things-backend\\Sharing-things-backend\\wwwroot\\",
       "BasePath": "_content/Sharing-things-backend",
       "RelativePath": "index.html",
       "AssetKind": "All",
@@ -68,10 +68,10 @@
       "OriginalItemSpec": "wwwroot\\index.html"
     },
     {
-      "Identity": "C:\\Web Development Projects\\sharing-things\\Sharing-things-backend\\Sharing-things-backend\\wwwroot\\js\\script.js",
+      "Identity": "C:\\Web Development\\sharing-things\\Sharing-things-backend\\Sharing-things-backend\\wwwroot\\js\\script.js",
       "SourceId": "Sharing-things-backend",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Web Development Projects\\sharing-things\\Sharing-things-backend\\Sharing-things-backend\\wwwroot\\",
+      "ContentRoot": "C:\\Web Development\\sharing-things\\Sharing-things-backend\\Sharing-things-backend\\wwwroot\\",
       "BasePath": "_content/Sharing-things-backend",
       "RelativePath": "js/script.js",
       "AssetKind": "All",
@@ -85,10 +85,10 @@
       "OriginalItemSpec": "wwwroot\\js\\script.js"
     },
     {
-      "Identity": "C:\\Web Development Projects\\sharing-things\\Sharing-things-backend\\Sharing-things-backend\\wwwroot\\logo192.png",
+      "Identity": "C:\\Web Development\\sharing-things\\Sharing-things-backend\\Sharing-things-backend\\wwwroot\\logo192.png",
       "SourceId": "Sharing-things-backend",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Web Development Projects\\sharing-things\\Sharing-things-backend\\Sharing-things-backend\\wwwroot\\",
+      "ContentRoot": "C:\\Web Development\\sharing-things\\Sharing-things-backend\\Sharing-things-backend\\wwwroot\\",
       "BasePath": "_content/Sharing-things-backend",
       "RelativePath": "logo192.png",
       "AssetKind": "All",
@@ -102,10 +102,10 @@
       "OriginalItemSpec": "wwwroot\\logo192.png"
     },
     {
-      "Identity": "C:\\Web Development Projects\\sharing-things\\Sharing-things-backend\\Sharing-things-backend\\wwwroot\\logo512.png",
+      "Identity": "C:\\Web Development\\sharing-things\\Sharing-things-backend\\Sharing-things-backend\\wwwroot\\logo512.png",
       "SourceId": "Sharing-things-backend",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Web Development Projects\\sharing-things\\Sharing-things-backend\\Sharing-things-backend\\wwwroot\\",
+      "ContentRoot": "C:\\Web Development\\sharing-things\\Sharing-things-backend\\Sharing-things-backend\\wwwroot\\",
       "BasePath": "_content/Sharing-things-backend",
       "RelativePath": "logo512.png",
       "AssetKind": "All",
@@ -119,10 +119,10 @@
       "OriginalItemSpec": "wwwroot\\logo512.png"
     },
     {
-      "Identity": "C:\\Web Development Projects\\sharing-things\\Sharing-things-backend\\Sharing-things-backend\\wwwroot\\manifest.json",
+      "Identity": "C:\\Web Development\\sharing-things\\Sharing-things-backend\\Sharing-things-backend\\wwwroot\\manifest.json",
       "SourceId": "Sharing-things-backend",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Web Development Projects\\sharing-things\\Sharing-things-backend\\Sharing-things-backend\\wwwroot\\",
+      "ContentRoot": "C:\\Web Development\\sharing-things\\Sharing-things-backend\\Sharing-things-backend\\wwwroot\\",
       "BasePath": "_content/Sharing-things-backend",
       "RelativePath": "manifest.json",
       "AssetKind": "All",
@@ -136,10 +136,10 @@
       "OriginalItemSpec": "wwwroot\\manifest.json"
     },
     {
-      "Identity": "C:\\Web Development Projects\\sharing-things\\Sharing-things-backend\\Sharing-things-backend\\wwwroot\\pic1.jpg",
+      "Identity": "C:\\Web Development\\sharing-things\\Sharing-things-backend\\Sharing-things-backend\\wwwroot\\pic1.jpg",
       "SourceId": "Sharing-things-backend",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Web Development Projects\\sharing-things\\Sharing-things-backend\\Sharing-things-backend\\wwwroot\\",
+      "ContentRoot": "C:\\Web Development\\sharing-things\\Sharing-things-backend\\Sharing-things-backend\\wwwroot\\",
       "BasePath": "_content/Sharing-things-backend",
       "RelativePath": "pic1.jpg",
       "AssetKind": "All",
@@ -153,10 +153,10 @@
       "OriginalItemSpec": "wwwroot\\pic1.jpg"
     },
     {
-      "Identity": "C:\\Web Development Projects\\sharing-things\\Sharing-things-backend\\Sharing-things-backend\\wwwroot\\pic2.jpg",
+      "Identity": "C:\\Web Development\\sharing-things\\Sharing-things-backend\\Sharing-things-backend\\wwwroot\\pic2.jpg",
       "SourceId": "Sharing-things-backend",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Web Development Projects\\sharing-things\\Sharing-things-backend\\Sharing-things-backend\\wwwroot\\",
+      "ContentRoot": "C:\\Web Development\\sharing-things\\Sharing-things-backend\\Sharing-things-backend\\wwwroot\\",
       "BasePath": "_content/Sharing-things-backend",
       "RelativePath": "pic2.jpg",
       "AssetKind": "All",
@@ -170,10 +170,10 @@
       "OriginalItemSpec": "wwwroot\\pic2.jpg"
     },
     {
-      "Identity": "C:\\Web Development Projects\\sharing-things\\Sharing-things-backend\\Sharing-things-backend\\wwwroot\\pic3.jpg",
+      "Identity": "C:\\Web Development\\sharing-things\\Sharing-things-backend\\Sharing-things-backend\\wwwroot\\pic3.jpg",
       "SourceId": "Sharing-things-backend",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Web Development Projects\\sharing-things\\Sharing-things-backend\\Sharing-things-backend\\wwwroot\\",
+      "ContentRoot": "C:\\Web Development\\sharing-things\\Sharing-things-backend\\Sharing-things-backend\\wwwroot\\",
       "BasePath": "_content/Sharing-things-backend",
       "RelativePath": "pic3.jpg",
       "AssetKind": "All",
@@ -187,10 +187,10 @@
       "OriginalItemSpec": "wwwroot\\pic3.jpg"
     },
     {
-      "Identity": "C:\\Web Development Projects\\sharing-things\\Sharing-things-backend\\Sharing-things-backend\\wwwroot\\pic4.jpg",
+      "Identity": "C:\\Web Development\\sharing-things\\Sharing-things-backend\\Sharing-things-backend\\wwwroot\\pic4.jpg",
       "SourceId": "Sharing-things-backend",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Web Development Projects\\sharing-things\\Sharing-things-backend\\Sharing-things-backend\\wwwroot\\",
+      "ContentRoot": "C:\\Web Development\\sharing-things\\Sharing-things-backend\\Sharing-things-backend\\wwwroot\\",
       "BasePath": "_content/Sharing-things-backend",
       "RelativePath": "pic4.jpg",
       "AssetKind": "All",
@@ -204,10 +204,10 @@
       "OriginalItemSpec": "wwwroot\\pic4.jpg"
     },
     {
-      "Identity": "C:\\Web Development Projects\\sharing-things\\Sharing-things-backend\\Sharing-things-backend\\wwwroot\\pic5.jpg",
+      "Identity": "C:\\Web Development\\sharing-things\\Sharing-things-backend\\Sharing-things-backend\\wwwroot\\pic5.jpg",
       "SourceId": "Sharing-things-backend",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Web Development Projects\\sharing-things\\Sharing-things-backend\\Sharing-things-backend\\wwwroot\\",
+      "ContentRoot": "C:\\Web Development\\sharing-things\\Sharing-things-backend\\Sharing-things-backend\\wwwroot\\",
       "BasePath": "_content/Sharing-things-backend",
       "RelativePath": "pic5.jpg",
       "AssetKind": "All",
@@ -221,10 +221,10 @@
       "OriginalItemSpec": "wwwroot\\pic5.jpg"
     },
     {
-      "Identity": "C:\\Web Development Projects\\sharing-things\\Sharing-things-backend\\Sharing-things-backend\\wwwroot\\robots.txt",
+      "Identity": "C:\\Web Development\\sharing-things\\Sharing-things-backend\\Sharing-things-backend\\wwwroot\\robots.txt",
       "SourceId": "Sharing-things-backend",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Web Development Projects\\sharing-things\\Sharing-things-backend\\Sharing-things-backend\\wwwroot\\",
+      "ContentRoot": "C:\\Web Development\\sharing-things\\Sharing-things-backend\\Sharing-things-backend\\wwwroot\\",
       "BasePath": "_content/Sharing-things-backend",
       "RelativePath": "robots.txt",
       "AssetKind": "All",
@@ -238,10 +238,10 @@
       "OriginalItemSpec": "wwwroot\\robots.txt"
     },
     {
-      "Identity": "C:\\Web Development Projects\\sharing-things\\Sharing-things-backend\\Sharing-things-backend\\wwwroot\\sadpanda.png",
+      "Identity": "C:\\Web Development\\sharing-things\\Sharing-things-backend\\Sharing-things-backend\\wwwroot\\sadpanda.png",
       "SourceId": "Sharing-things-backend",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Web Development Projects\\sharing-things\\Sharing-things-backend\\Sharing-things-backend\\wwwroot\\",
+      "ContentRoot": "C:\\Web Development\\sharing-things\\Sharing-things-backend\\Sharing-things-backend\\wwwroot\\",
       "BasePath": "_content/Sharing-things-backend",
       "RelativePath": "sadpanda.png",
       "AssetKind": "All",
@@ -255,10 +255,10 @@
       "OriginalItemSpec": "wwwroot\\sadpanda.png"
     },
     {
-      "Identity": "C:\\Web Development Projects\\sharing-things\\Sharing-things-backend\\Sharing-things-backend\\wwwroot\\sharing-things.png",
+      "Identity": "C:\\Web Development\\sharing-things\\Sharing-things-backend\\Sharing-things-backend\\wwwroot\\sharing-things.png",
       "SourceId": "Sharing-things-backend",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Web Development Projects\\sharing-things\\Sharing-things-backend\\Sharing-things-backend\\wwwroot\\",
+      "ContentRoot": "C:\\Web Development\\sharing-things\\Sharing-things-backend\\Sharing-things-backend\\wwwroot\\",
       "BasePath": "_content/Sharing-things-backend",
       "RelativePath": "sharing-things.png",
       "AssetKind": "All",
@@ -272,12 +272,12 @@
       "OriginalItemSpec": "wwwroot\\sharing-things.png"
     },
     {
-      "Identity": "C:\\Web Development Projects\\sharing-things\\Sharing-things-backend\\Sharing-things-backend\\wwwroot\\static\\css\\main.e38745e7.css",
+      "Identity": "C:\\Web Development\\sharing-things\\Sharing-things-backend\\Sharing-things-backend\\wwwroot\\static\\css\\main.d937b75a.css",
       "SourceId": "Sharing-things-backend",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Web Development Projects\\sharing-things\\Sharing-things-backend\\Sharing-things-backend\\wwwroot\\",
+      "ContentRoot": "C:\\Web Development\\sharing-things\\Sharing-things-backend\\Sharing-things-backend\\wwwroot\\",
       "BasePath": "_content/Sharing-things-backend",
-      "RelativePath": "static/css/main.e38745e7.css",
+      "RelativePath": "static/css/main.d937b75a.css",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -286,15 +286,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\static\\css\\main.e38745e7.css"
+      "OriginalItemSpec": "wwwroot\\static\\css\\main.d937b75a.css"
     },
     {
-      "Identity": "C:\\Web Development Projects\\sharing-things\\Sharing-things-backend\\Sharing-things-backend\\wwwroot\\static\\css\\main.e38745e7.css.map",
+      "Identity": "C:\\Web Development\\sharing-things\\Sharing-things-backend\\Sharing-things-backend\\wwwroot\\static\\css\\main.d937b75a.css.map",
       "SourceId": "Sharing-things-backend",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Web Development Projects\\sharing-things\\Sharing-things-backend\\Sharing-things-backend\\wwwroot\\",
+      "ContentRoot": "C:\\Web Development\\sharing-things\\Sharing-things-backend\\Sharing-things-backend\\wwwroot\\",
       "BasePath": "_content/Sharing-things-backend",
-      "RelativePath": "static/css/main.e38745e7.css.map",
+      "RelativePath": "static/css/main.d937b75a.css.map",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -303,13 +303,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\static\\css\\main.e38745e7.css.map"
+      "OriginalItemSpec": "wwwroot\\static\\css\\main.d937b75a.css.map"
     },
     {
-      "Identity": "C:\\Web Development Projects\\sharing-things\\Sharing-things-backend\\Sharing-things-backend\\wwwroot\\static\\js\\main.f2e7d605.js",
+      "Identity": "C:\\Web Development\\sharing-things\\Sharing-things-backend\\Sharing-things-backend\\wwwroot\\static\\js\\main.f2e7d605.js",
       "SourceId": "Sharing-things-backend",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Web Development Projects\\sharing-things\\Sharing-things-backend\\Sharing-things-backend\\wwwroot\\",
+      "ContentRoot": "C:\\Web Development\\sharing-things\\Sharing-things-backend\\Sharing-things-backend\\wwwroot\\",
       "BasePath": "_content/Sharing-things-backend",
       "RelativePath": "static/js/main.f2e7d605.js",
       "AssetKind": "All",
@@ -323,10 +323,10 @@
       "OriginalItemSpec": "wwwroot\\static\\js\\main.f2e7d605.js"
     },
     {
-      "Identity": "C:\\Web Development Projects\\sharing-things\\Sharing-things-backend\\Sharing-things-backend\\wwwroot\\static\\js\\main.f2e7d605.js.LICENSE.txt",
+      "Identity": "C:\\Web Development\\sharing-things\\Sharing-things-backend\\Sharing-things-backend\\wwwroot\\static\\js\\main.f2e7d605.js.LICENSE.txt",
       "SourceId": "Sharing-things-backend",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Web Development Projects\\sharing-things\\Sharing-things-backend\\Sharing-things-backend\\wwwroot\\",
+      "ContentRoot": "C:\\Web Development\\sharing-things\\Sharing-things-backend\\Sharing-things-backend\\wwwroot\\",
       "BasePath": "_content/Sharing-things-backend",
       "RelativePath": "static/js/main.f2e7d605.js.LICENSE.txt",
       "AssetKind": "All",
@@ -340,10 +340,10 @@
       "OriginalItemSpec": "wwwroot\\static\\js\\main.f2e7d605.js.LICENSE.txt"
     },
     {
-      "Identity": "C:\\Web Development Projects\\sharing-things\\Sharing-things-backend\\Sharing-things-backend\\wwwroot\\static\\js\\main.f2e7d605.js.map",
+      "Identity": "C:\\Web Development\\sharing-things\\Sharing-things-backend\\Sharing-things-backend\\wwwroot\\static\\js\\main.f2e7d605.js.map",
       "SourceId": "Sharing-things-backend",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Web Development Projects\\sharing-things\\Sharing-things-backend\\Sharing-things-backend\\wwwroot\\",
+      "ContentRoot": "C:\\Web Development\\sharing-things\\Sharing-things-backend\\Sharing-things-backend\\wwwroot\\",
       "BasePath": "_content/Sharing-things-backend",
       "RelativePath": "static/js/main.f2e7d605.js.map",
       "AssetKind": "All",
