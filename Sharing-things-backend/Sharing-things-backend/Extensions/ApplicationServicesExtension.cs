@@ -60,7 +60,7 @@ namespace Sharing_things_backend.Extensions
                 //opt.UseNpgsql(connStr);
 
                 //opt.UseSqlServer(config.GetConnectionString("DefaultConnection2"));
-                opt.UseMySql(config.GetConnectionString("DefaultConnection-mysql"), ServerVersion.AutoDetect(config.GetConnectionString("DefaultConnection-mysql")));
+                opt.UseMySql(config.GetConnectionString("DefaultConnectionmysql"), ServerVersion.AutoDetect(config.GetConnectionString("DefaultConnection-mysql")));
 
             });
 
