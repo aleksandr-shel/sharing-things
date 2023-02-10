@@ -159,3 +159,4 @@ C:\Web Development\sharing-things\Sharing-things-backend\Sharing-things-backend\
 C:\Web Development\sharing-things\Sharing-things-backend\Sharing-things-backend\obj\Debug\net6.0\ref\Sharing-things-backend.dll
 C:\Web Development\sharing-things\Sharing-things-backend\Sharing-things-backend\bin\Debug\net6.0\MySqlConnector.dll
 C:\Web Development\sharing-things\Sharing-things-backend\Sharing-things-backend\bin\Debug\net6.0\Pomelo.EntityFrameworkCore.MySql.dll
+C:\Web Development\sharing-things\Sharing-things-backend\Sharing-things-backend\bin\Debug\net6.0\aws-beanstalk-tools-defaults.json

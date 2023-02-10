@@ -1,6 +1,7 @@
 C:\Web Development\sharing-things\Sharing-things-backend\Sharing-things-backend\bin\Debug\net6.0\publish\Sharing-things-backend
 C:\Web Development\sharing-things\Sharing-things-backend\Sharing-things-backend\bin\Debug\net6.0\publish\appsettings.Development.json
 C:\Web Development\sharing-things\Sharing-things-backend\Sharing-things-backend\bin\Debug\net6.0\publish\appsettings.json
+C:\Web Development\sharing-things\Sharing-things-backend\Sharing-things-backend\bin\Debug\net6.0\publish\aws-beanstalk-tools-defaults.json
 C:\Web Development\sharing-things\Sharing-things-backend\Sharing-things-backend\bin\Debug\net6.0\publish\Sharing-things-backend.dll
 C:\Web Development\sharing-things\Sharing-things-backend\Sharing-things-backend\bin\Debug\net6.0\publish\Sharing-things-backend.runtimeconfig.json
 C:\Web Development\sharing-things\Sharing-things-backend\Sharing-things-backend\bin\Debug\net6.0\publish\Sharing-things-backend.pdb
