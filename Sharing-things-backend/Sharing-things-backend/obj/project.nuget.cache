@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "bW4QIaLMv/cTQYZhD4m5Boqqd5OQpww2BK19C8GxrWUqIuLnMwZvzM7vskazAsHV6dIj/PU1lu8QCAu+Flz/ew==",
+  "dgSpecHash": "UDNqRiC3/0VpFuTlWHgQCI/ZYVBgYGrwjopkUlBIQ2wVuoEFqkw1ObWInLzEcty/jlzWE23NX16psLLAfM1buA==",
   "success": true,
   "projectFilePath": "C:\\Web Development\\sharing-things\\Sharing-things-backend\\Sharing-things-backend\\Sharing-things-backend.csproj",
   "expectedPackageFiles": [
@@ -71,8 +71,7 @@
     "C:\\Users\\Owner\\.nuget\\packages\\system.security.permissions\\4.7.0\\system.security.permissions.4.7.0.nupkg.sha512",
     "C:\\Users\\Owner\\.nuget\\packages\\system.security.principal.windows\\4.7.0\\system.security.principal.windows.4.7.0.nupkg.sha512",
     "C:\\Users\\Owner\\.nuget\\packages\\system.text.encoding.codepages\\4.7.0\\system.text.encoding.codepages.4.7.0.nupkg.sha512",
-    "C:\\Users\\Owner\\.nuget\\packages\\system.windows.extensions\\4.7.0\\system.windows.extensions.4.7.0.nupkg.sha512",
-    "C:\\Users\\Owner\\.nuget\\packages\\microsoft.netcore.app.host.linux-x64\\6.0.9\\microsoft.netcore.app.host.linux-x64.6.0.9.nupkg.sha512"
+    "C:\\Users\\Owner\\.nuget\\packages\\system.windows.extensions\\4.7.0\\system.windows.extensions.4.7.0.nupkg.sha512"
   ],
   "logs": []
 }
