@@ -8,7 +8,7 @@ namespace Sharing_things_backend.Services
     {
         private readonly IAmazonS3 _client;
         private readonly ILogger<S3BucketService> _logger;
-        private readonly string _bucketName = "sharing-things";
+        private readonly string _bucketName = "shared-bucket-aleksandr";
         private readonly string _region = "ca-central-1";
         public S3BucketService(IAmazonS3 client, ILogger<S3BucketService> logger)
         {
@@ -55,7 +55,7 @@ namespace Sharing_things_backend.Services
                 if (file.Length > 0)
                 {
                     await using var stream = file.OpenReadStream();
-                    var key = Guid.NewGuid().ToString() + "_" + file.FileName;
+                    var key = "sharing-things/" + Guid.NewGuid().ToString() + "_" + file.FileName;
 
                     //_logger.LogInformation(JsonSerializer.Serialize(file));
 

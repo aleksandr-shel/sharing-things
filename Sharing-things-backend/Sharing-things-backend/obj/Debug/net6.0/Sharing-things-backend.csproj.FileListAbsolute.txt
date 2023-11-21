@@ -160,3 +160,9 @@ C:\Web Development\sharing-things\Sharing-things-backend\Sharing-things-backend\
 C:\Web Development\sharing-things\Sharing-things-backend\Sharing-things-backend\bin\Debug\net6.0\MySqlConnector.dll
 C:\Web Development\sharing-things\Sharing-things-backend\Sharing-things-backend\bin\Debug\net6.0\Pomelo.EntityFrameworkCore.MySql.dll
 C:\Web Development\sharing-things\Sharing-things-backend\Sharing-things-backend\bin\Debug\net6.0\aws-beanstalk-tools-defaults.json
+C:\Web Development\sharing-things\Sharing-things-backend\Sharing-things-backend\obj\Debug\net6.0\Sharing-things-backend.sourcelink.json
+C:\Web Development\sharing-things\Sharing-things-backend\Sharing-things-backend\obj\Debug\net6.0\staticwebassets\msbuild.Sharing-things-backend.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Web Development\sharing-things\Sharing-things-backend\Sharing-things-backend\obj\Debug\net6.0\staticwebassets\msbuild.build.Sharing-things-backend.props
+C:\Web Development\sharing-things\Sharing-things-backend\Sharing-things-backend\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.Sharing-things-backend.props
+C:\Web Development\sharing-things\Sharing-things-backend\Sharing-things-backend\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.Sharing-things-backend.props
+C:\Web Development\sharing-things\Sharing-things-backend\Sharing-things-backend\obj\Debug\net6.0\staticwebassets.pack.json
